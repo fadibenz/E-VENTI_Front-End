@@ -1,0 +1,390 @@
+@import '../../Styles/_variables.scss';
+@import '../../Styles/_base';
+@import '../../Styles/index';
+
+.LoginMain {
+  display: flex;
+  background-color: white;
+}
+
+.LoginPhoto {
+  width: 50%;
+  background-color: #e2e8f0;
+  background-image: url('/Assets/Images/AuthLayout/gray-concrete-wall\ 1.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  position: fixed;
+}
+
+.Desktop {
+  display: block;
+  position: relative;
+  img {
+    width: 150px;
+    // height: 150px;
+  }
+  .LetsGO {
+    position: relative;
+    margin-top: 0em;
+    margin-left: 7em;
+    width: fit-content;
+    text-align: center;
+    line-height: 1.2;
+    h1 {
+      margin: 0 !important;
+      font-size: 3.8rem;
+      font-weight: 800;
+    }
+
+    &__Pur {
+      color: $Primary--color-dark;
+    }
+    &__Yellow {
+      color: $Secondary--color-1-dark;
+    }
+    &__Green {
+      color: $Secondary--color-2-dark;
+    }
+    &__qst {
+      color: black;
+    }
+    &__Lines{
+      position: absolute;
+      width: 100px;
+      left: -120px;
+      bottom: -110px;
+    }
+    &__Arr{
+     position: absolute;
+     width: 70px; 
+     left: 200px;
+     top: -13px;
+    }
+  }
+  .Excursion {
+    position: relative;
+    margin-top: 2em;
+    &__triangle {
+      width: 0;
+      height: 0;
+      position: absolute;
+      border-style: solid;
+      border-width: 120px 0 0 120px;
+      border-color: transparent transparent transparent $Primary--color-dark;
+    }
+    img {
+      position: relative;
+      z-index: 3;
+      width: 200px;
+    }
+    p {
+      margin-left: 0.3em;
+      font-size: 1.3rem;
+      font-weight: 500;
+    }
+  }
+  .Confrences {
+    position: absolute;
+    left: 90px;
+    bottom: -190px;
+    &__Circle {
+      background: $Secondary--color-2-dark;
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      position: absolute;
+      bottom: -30px;
+    }
+    &__outline {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      position: absolute;
+      border: 3px black solid;
+      bottom: -15px;
+    }
+    img {
+      width: 120px;
+      position: relative;
+    }
+    p{
+      font-weight: 500;
+      bottom: -50px;
+      left: -50px;
+      position: absolute;
+    }
+  }
+  .Concerts {
+    position: fixed;
+    left: 380px;
+    bottom: 90px;
+    &__Square{
+      width: 120px;
+      height: 120px;
+      position: absolute;
+      background-color: $Secondary--color-1-dark;
+      bottom: 5px;
+      z-index: 1;
+    }
+    &__outline {
+      width: 120px;
+      height: 120px;
+      position: absolute;
+      z-index: 0;
+      border: 3px black solid;
+      bottom: -10px;
+      left: -10px;
+    }
+    img{
+      position: relative;
+      z-index: 2;
+      width: 200px;
+    }
+    p{
+      font-weight: 500;
+      writing-mode: vertical-rl;
+      position: absolute;
+      bottom: 15px;
+      right: 50px;
+    }
+  }
+  .Vector{
+    width: 60px;
+    position: absolute;
+    bottom: -190px;
+    right: 200px;
+  }
+  .plus{
+    position: absolute;
+    width: 70px;
+    top: -60px;
+    right: 120px;
+  }
+}
+
+
+
+.Mobile {
+  display: none;
+}
+
+.LoginForm {
+  width: 50%;
+  margin-bottom: 2em;
+  background-color: white;
+  margin-left: auto;
+  &__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40vw;
+    margin: 2.4em auto 0;
+    position: relative;
+  }
+
+  &__Quitbtn {
+    position: absolute;
+    right: 0;
+    background-color: black;
+    border: none;
+    padding: 0.3em;
+    .icon {
+      color: white;
+      font-size: 2rem;
+    }
+  }
+}
+
+.LoginForm__main h1 {
+  font-size: $fs-800 * 1.3;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+  margin: 2em auto 0.6em;
+}
+
+.LoginPhoto {
+  // position: relative;
+  &__Btn {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    position: absolute;
+    right: 0;
+    top: 40%;
+  }
+}
+
+.btn {
+  padding: 0.4em 6em;
+  transition: $Transition--duration;
+  &:hover {
+    background-color: black;
+    color: white;
+    transition: $Transition--duration;
+    border: 1px solid transparent;
+  }
+}
+
+.Restbtn {
+  background-color: black;
+  border: transparent;
+  padding: 0.6em 0.5em;
+  color: white;
+  font-weight: bold;
+}
+
+.Activebtn {
+  background-color: white;
+  color: black;
+}
+
+@media (max-width:1100px) {
+  .Desktop{
+ .Concerts{
+    display: none;
+  }
+  .LetsGO{
+    margin-left: 1em ;
+  }
+  .Vector{
+    right: 50px !important;
+  }
+  }
+
+}
+
+@media (max-width: 850px) {
+  .LoginMain {
+    flex-direction: column;
+  }
+  .LoginPhoto {
+    position: relative;
+    height: 400px;
+    width: 100%;
+  }
+
+  .LoginForm {
+    width: 100%;
+    height: initial;
+    &__main {
+      width: 80vw;
+      margin: 0 auto;
+      h1 {
+        margin-top: 3em;
+      }
+    }
+    &__Quitbtn {
+      top: 20px;
+      left: 20px;
+    }
+  }
+
+  .LoginPhoto__Btn {
+    flex-direction: row;
+    left: 0;
+    width: 100%;
+    top: initial;
+    bottom: -45px;
+    button {
+      width: 50%;
+    }
+  }
+
+  .Desktop{
+      .Excursion{
+        // position: absolute;
+      }
+       .LetsGO {
+        margin-left: 12em;
+        margin-top: -4em ;
+    }
+      .Vector{
+        bottom: 0;
+        display: none;
+      }
+      .Confrences{
+        display: none;
+      }
+  }
+
+  
+}
+@media (max-width:500px) {
+  .Excursion{
+    display: none;
+  }
+  .Desktop{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    .LetsGO{
+      margin-top: 0;
+      margin-left: 0;
+    }
+  }
+  .plus{
+    display: none;
+  }
+}
+
+@media (max-width: 450px) {
+  .LoginForm__main {
+    width: 90vw;
+    h1 {
+      font-size: $fs-800;
+    }
+  }
+  .InputField {
+    padding: 0.3em 1.6em;
+  }
+}
+
+.Or {
+  margin-top: 1.4em;
+  position: relative;
+  width: 100%;
+
+  h4 {
+    margin: 0.1em auto;
+    width: fit-content;
+    font-weight: 500;
+    color: $Secondary--color-2;
+    font-size: 1.3rem;
+  }
+
+  &::after {
+    content: '';
+    width: 42%;
+    height: 2px;
+    position: absolute;
+    display: inline;
+    background-color: $grey;
+    top: 17px;
+    right: 0;
+  }
+  &::before {
+    content: '';
+    width: 42%;
+    height: 2px;
+    position: absolute;
+    display: inline;
+    background-color: $grey;
+    top: 17px;
+  }
+}
+.LoginField__Feat {
+  margin-top: 1.4em;
+  display: flex;
+  gap: 4em;
+
+  button {
+    background-color: transparent;
+    border: 0.1em solid #e2e8f0;
+    font-size: 1.5rem;
+    padding: 0.6em;
+  }
+}

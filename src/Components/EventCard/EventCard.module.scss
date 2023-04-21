@@ -1,0 +1,96 @@
+@import '../../Styles/_variables.scss';
+@import '../../Styles/_base';
+@import '../../Styles/index';
+
+.Like{
+    &__item{
+        position: relative;
+        display: flex;
+        border: 1px solid;
+        max-width: 400px;
+        margin: auto;
+        .Barcode{
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        button{
+            position: absolute;
+            top: 0;
+            background-color: white;
+            border: 0;
+            padding: .2em;
+            border-bottom: 1px solid black;
+            border-right: 1px solid black;
+            img{
+                width: 25px;
+            }
+        }
+        p {
+            background-color: black;
+            color: white;
+            padding: .1em .5em;
+            width: 100%;
+            font-weight: 600;
+        }
+        h2{
+            font-size: .8rem;
+            background-color: white;
+            border-top: solid 1px ;
+            border-right: solid 1px ;
+            width: fit-content;
+            padding: .2em .5em;
+            font-weight: 500;
+        }
+    }
+    
+    &__Img{
+        position: relative;
+        width: 80%;
+        &_Main{
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__info {
+        position: relative;
+        margin-top: -55px;
+        z-index: 2;
+    }
+}
+
+
+
+.LikeIcons{
+    padding: .7em .2em;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: .7em;
+    width: 20%;
+    .Icon__cnt{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: .2em;
+    }
+
+    h4 {
+    text-align: center;
+    font-size: 1rem;
+    color: $grey;
+    font-weight: 500;
+ }   
+
+ img {
+    width: 30px;
+ }
+
+ .Ticket{
+    width: 25px;
+    height: 25px;
+ }
+}
+
