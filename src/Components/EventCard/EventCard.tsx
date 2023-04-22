@@ -9,11 +9,12 @@ interface EventCardProps {
   date: string;
   title: string,
   category: string;
+  className?: string;
 }
 
-const EventCard: FC<EventCardProps> = ({img, location, date, title, category}) => {
+const EventCard: FC<EventCardProps> = ({img, location, date, title, category, className}) => {
     return (
-      <article className={SY.Like__item}>
+      <article className={`${SY.Like__item} ${className} `}>
         <div className={SY.Like__Img}>
           <img
             src={img}

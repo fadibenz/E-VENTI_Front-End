@@ -4,7 +4,7 @@ import { BsTicketPerforated, BsBookmark } from 'react-icons/bs';
 import { GrFormPrevious, GrFormNext } from 'react-icons/gr';
 import { IoChevronBackOutline } from 'react-icons/io5';
 import { FiTwitter, FiFacebook, FiLinkedin, FiInstagram } from 'react-icons/fi';
-import { EventCard, Navbar } from '../../Components/index';
+import { EventCard, Navbar, Footer } from '../../Components/index';
 import T from '/Assets/Images/EventDetails/mainPhoto.jpg';
 import U from '/Assets/Images/EventDetails/yoal-desurmont-ddawgJ7eGDA-unsplash.jpg';
 interface EventDetailsProps {}
@@ -41,7 +41,10 @@ return (
           </button>
           {Thumbnails.map((thumbnail, index) => {
             return (
-              <button className={SY.Thumbnails__Img} onClick={() => setIndex(index)}>
+              <button
+                className={SY.Thumbnails__Img}
+                onClick={() => setIndex(index)}
+              >
                 <img src={thumbnail} alt='' />
               </button>
             );
@@ -59,12 +62,12 @@ return (
           <div className={SY.Organizer}>
             <div className={SY.Organizer__info}>
               <img src='/Assets/Icons/organizer icon.png' alt='' />
-              <div>
+              <a>
                 <p>
                   <span>1k</span> followers
                 </p>
                 <h4>Alphabit club</h4>
-              </div>
+              </a>
             </div>
             <div className={SY.btncnt}>
               <button className={SY.btn}>+ follow</button>
@@ -154,6 +157,7 @@ return (
             date='16 june'
             title='Lorem ipsum'
             category='Business'
+            className={SY.EventCard}
           />
           <EventCard
             img='./Assets/Images/EventDetails/mainPhoto.jpg'
@@ -161,17 +165,20 @@ return (
             date='16 june'
             title='Lorem ipsum'
             category='Business'
+            className={SY.EventCard}
           />
           <EventCard
             img='./Assets/Images/EventDetails/mainPhoto.jpg'
             location='Location'
             date='16 june'
             title='Lorem ipsum'
+            className={SY.EventCard}
             category='Business'
           />
         </section>
       </section>
     </main>
+    <Footer />
   </>
 );
 };
