@@ -158,6 +158,7 @@ return (
             title='Lorem ipsum'
             category='Business'
             className={SY.EventCard}
+            price='11£'
           />
           <EventCard
             img='./Assets/Images/EventDetails/mainPhoto.jpg'
@@ -166,6 +167,7 @@ return (
             title='Lorem ipsum'
             category='Business'
             className={SY.EventCard}
+            price='11£'
           />
           <EventCard
             img='./Assets/Images/EventDetails/mainPhoto.jpg'
@@ -174,6 +176,7 @@ return (
             title='Lorem ipsum'
             className={SY.EventCard}
             category='Business'
+            price='11£'
           />
         </section>
       </section>
