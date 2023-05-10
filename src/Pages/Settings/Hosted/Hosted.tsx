@@ -1,6 +1,6 @@
 import {useRef, useState} from 'react';
 import './Styles.css' ;
-import { EventCard } from '../../../Components';
+import { EventCard, Navbar } from '../../../Components';
 import  mainPhoto from '../../../../public/Assets/Images/EventDetails/mainPhoto.jpg' ;
 import DelIcon from '../../../../public/Assets/Icons/Delete.svg';
 import EditIcon from '../../../../public/Assets/Icons/Edit.svg';
@@ -9,7 +9,9 @@ import V from '../../../../public/Assets/Icons/Vshape.svg' ;
 import Hosedheadericon from  '../../../../public/Assets/Icons/Hosed-header-icon.svg'; 
 import Hostedrecs from '../../../../public/Assets/Icons/Rec-hosted.svg'
 import Ticket from '../../../../public/Assets/Icons/Ticket.svg' ; 
-
+import './Styles.css' ;
+import { PSHFBtn } from '../../../Components/PSHFBtn/PSHFBtn';
+import { Avatar } from '@mui/material';
 
 
 
@@ -31,7 +33,11 @@ const Hosted = () => {
       {id:2 , img:{mainPhoto} , location:'Alger' , date:'12/12' , title:'Esi alger Event' , category:'category' , className:''  ,price: 'Free',ispop : false},
       {id:3 , img:{mainPhoto} , location:'Sba' , date:'13/13' , title:'Esi Sba Event' , category:'category' , className:''      ,price: '800DA', ispop : false},
       {id:4 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' , className:'',price: '62€', ispop : false},
-   ])
+      {id:4 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' , className:'',price: '62€', ispop : false},
+      {id:4 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' , className:'',price: '62€', ispop : false},
+      {id:4 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' , className:'',price: '62€', ispop : false},
+      {id:4 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' , className:'',price: '62€', ispop : false},
+  ])
 
 
 
@@ -84,11 +90,18 @@ function handlePop(ind: number, boolvalue: boolean) {
          <img src={V} alt="<" />
         </button>
     </div>
-    <div>{/*for the desktop header*/}
-    
+    <div className='navbar'>
+       <Navbar/>
     </div>
+
+
+    <div className='PSHFBtn'>
+       {/*for the hosted header in md devices*/}
+       <PSHFBtn />
+    </div>
+
     <div className='container'> {/*For all the page*/}
-       <div className='hosted-header'>{/*for the header container in mobile version */}
+       <div className='hostedheader'>{/*for the header container in mobile version */}
            <div className='header-rect'>
                 <img src={Hostedrecs} alt="" /> 
            </div>
@@ -112,7 +125,20 @@ function handlePop(ind: number, boolvalue: boolean) {
                 <>
                    
                    <div className='card'  >
-                    <EventCard img={mainPhoto} location={card.location} date={card.date} title={card.title} category={'category'} price ={card.price} className ={''} />
+                        <div className='headercard'>
+                                <div className='avatarName'>
+                                  <Avatar 
+                                    alt={'Organizer name'}
+                                    src={''}
+                                    sx={{ width:{xs:'30px' ,md:'40px'}, height: {xs:'30px' , md:'40px'} }}
+                                  />
+                                  <p>Organizer</p>
+                                </div>
+                                <div className='Date'>
+                                  <p>Added 12 min ago</p>
+                                </div>
+                            </div>
+                    <EventCard img={mainPhoto} location={card.location} date={card.date} title={card.title} category={'category'} price ={card.price} className ='CardDesk' />
                       <div className='EventCTA'>
                           <button className='Edit-color'>
                              <img className='btnIcon' src={EditIcon}/>
@@ -126,10 +152,11 @@ function handlePop(ind: number, boolvalue: boolean) {
                              <div><p>Delete</p></div>
                           </button>
                       </div>  
+                      <ModelBox pop={card.ispop}  handleRemoveItem={handleRemoveItem} ind = {card.id}  handlePop={handlePop} index={index} />
                    </div>
                  
                    
-                   <ModelBox pop={card.ispop}  handleRemoveItem={handleRemoveItem} ind = {card.id}  handlePop={handlePop} index={index} />
+                   
                    
                 </>
              )

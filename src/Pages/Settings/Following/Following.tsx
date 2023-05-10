@@ -1,5 +1,5 @@
-import {Stack , Box ,Tabs, Tab, Avatar } from "@mui/material" ; 
-import {Navbar} from "../../../Components/index" ;
+import {Stack , Box ,Tabs, Tab, Avatar, useMediaQuery } from "@mui/material" ; 
+import Navbar from '../../../Components/Navbar/Navbar' ; 
 import  './Styles.css';
 import { Margin } from '@mui/icons-material';
 import V from '../../../../public/Assets/Icons/Vshape.svg' ;
@@ -10,6 +10,8 @@ import { useState } from "react";
 import Ticket from '../../../../public/Assets/Icons/Ticket.svg' ;
 import FollowPlus from '../../../../public/Assets/Icons/FollowPlus.svg';
 import Follow from '../../../../public/Assets/Icons/Follow.svg' ;
+import { PSHFBtn } from "../../../Components/PSHFBtn/PSHFBtn";
+import { useTheme } from '@mui/material/styles';
 
 
 
@@ -17,6 +19,9 @@ import Follow from '../../../../public/Assets/Icons/Follow.svg' ;
 
 
 const Following = () => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('1142')) ;
+
   const [list , setList] = useState([
     {id:1 , img:{mainPhoto} , location:'Oran' , date:'11/11' , title:'Esi oran Event' , category:'category' , className:''    ,price: '50$'  },
     {id:2 , img:{mainPhoto} , location:'Alger' , date:'12/12' , title:'Esi alger Event' , category:'category' , className:''  ,price: 'Free' },
@@ -63,10 +68,14 @@ interface OrganizerAvatarProps{
           <img src={V} alt="<" />
        </button>
     </div>
-    <div>
-      {/*for the mobile version header li khdmo fadi zidlo button */}
+    <div className={SY.navbar}>
+       <Navbar/>
     </div>
 
+    <div className={SY.PSHFBtn}>
+          {/*for the hosted header in md devices*/}
+          <PSHFBtn />
+    </div>
 
     <div className={SY.container}>
     <div className={SY.followingheader}>{/*for the header container in mobile version */}
@@ -88,9 +97,10 @@ interface OrganizerAvatarProps{
           <p>Stay up to date !</p>
        </div>
 
-       <Box sx = {{ maxWidth: { xs: 320, sm: 480 , md : 800}, bgcolor: 'background.paper' }}>
+       <Box sx = {{ maxWidth: { xs: 320, sm: 480 , md : 800 }, bgcolor: 'background.paper' ,overflow: 'auto',}}>
        <Tabs
-          value={value}
+           orientation={isSmallScreen ? 'horizontal' : 'vertical'}
+           value={value}
            onChange={handleChange}
            variant="scrollable"
            scrollButtons={true}
@@ -103,10 +113,26 @@ interface OrganizerAvatarProps{
                           lineHeight: '11px', 
                           letterSpacing: '0.2em',
                           color : 'black',
-                         } ,
-           }}
+                         } , 
+             "@media (min-width: 1142px)": {
+                "& button": {
+                    marginRight: '16px',
+                },
+              },
+              maxHeight: 'calc(100vh - 250px)' 
+              }}
+               
+           
        >  
          
+          <Tab icon={''} iconPosition="start" label={<OrganizeAvatar name={'Organizer'} img={''}/>} />
+          <Tab icon={''} iconPosition="start" label={<OrganizeAvatar name={'Organizer'} img={''}/>} />
+          <Tab icon={''} iconPosition="start" label={<OrganizeAvatar name={'Organizer'} img={''}/>} />
+          <Tab icon={''} iconPosition="start" label={<OrganizeAvatar name={'Organizer'} img={''}/>} />
+          <Tab icon={''} iconPosition="start" label={<OrganizeAvatar name={'Organizer'} img={''}/>} />
+          <Tab icon={''} iconPosition="start" label={<OrganizeAvatar name={'Organizer'} img={''}/>} />
+          <Tab icon={''} iconPosition="start" label={<OrganizeAvatar name={'Organizer'} img={''}/>} />
+          <Tab icon={''} iconPosition="start" label={<OrganizeAvatar name={'Organizer'} img={''}/>} />
           <Tab icon={''} iconPosition="start" label={<OrganizeAvatar name={'Organizer'} img={''}/>} />
           <Tab icon={''} iconPosition="start" label={<OrganizeAvatar name={'Organizer'} img={''}/>} />
           <Tab icon={''} iconPosition="start" label={<OrganizeAvatar name={'Organizer'} img={''}/>} />
@@ -139,7 +165,7 @@ interface OrganizerAvatarProps{
                             <p>Added 12 min ago</p>
                           </div>
                       </div>
-                      <EventCard img={mainPhoto} location={card.location} date={card.date} title={card.title} category={'category'} price ={card.price} className ={''} />
+                      <EventCard img={mainPhoto} location={card.location} date={card.date} title={card.title} category={'category'} price ={card.price} className ={`${SY.CardDesk}`} />
                    </div>
                 </>
              )
@@ -148,7 +174,9 @@ interface OrganizerAvatarProps{
           
        }       
        </div>
-        
+       <div className={SY.titleDesk}>
+           <p className={SY.rl}>Stay up to date !</p>
+       </div>
 
     </div> 
 

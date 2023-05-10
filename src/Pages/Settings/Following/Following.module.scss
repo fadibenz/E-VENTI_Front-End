@@ -184,3 +184,183 @@
     }
 
 }
+
+
+
+
+
+
+
+.PSHFBtn{
+    display: none;
+    margin-bottom: 0px;
+    margin-left: 5.13%;
+}
+
+.titleDesk{
+    display: none;
+}
+
+.navbar{
+    display: none;
+}
+
+
+
+@media (min-width: 600px) and (max-width: 1140px) {
+    
+    .cards {
+      justify-content: center;
+    }
+  }
+
+
+
+@media (width > 1141px) {
+   
+    .navbar{
+        display: block ;
+        position:sticky;
+        top: 0px;
+    }
+    .MobileVersion {
+        display: none ;
+    }
+    .followingheader{
+        display: none;
+    }
+    .PSHFBtn{
+        display: block;
+        position: fixed; 
+        top : 5.1em ;
+        left: 4%;
+    
+    }
+    .title{
+        display: none ;
+    }
+
+
+
+    
+    .container{
+        flex-direction:row ;
+        border: 0px  ;
+        box-sizing: border-box;
+        border: 3px solid black ;
+        position: fixed ;
+        top: 8.2em ; 
+        padding-right: 0px;
+        width: 80% ;
+        height: 82%;
+        margin-left: 9.13%;
+        margin-right:5.13%;
+        .titleDesk{
+            background: $Secondary--color-4;          
+            position: absolute;
+            width: 2%;
+            right: 0px;
+            top: 0px;
+            bottom: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            .rl{
+                writing-mode: vertical-rl;
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 20px;
+                letter-spacing: 0.2em;
+                text-align: center;
+                width: fit-content;
+                writing-mode:sideways-lr;
+            }
+        }
+        .cards{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            padding: 5%;
+            padding-left: 8%;
+            gap:3em;
+            z-index: 0  ; 
+            height: 100%;
+            width:100% ;
+ 
+            overflow-y: scroll; /* add vertical scroll */
+            -webkit-overflow-scrolling: touch; /* add smooth scrolling for iOS devices */
+            
+            /* hide the scrollbar */
+            &::-webkit-scrollbar {
+              width: 0.5em;
+            }
+            
+            &::-webkit-scrollbar-track {
+              background-color: transparent;
+            }
+            
+            &::-webkit-scrollbar-thumb {
+              background-color: rgba(0, 0, 0, 0);
+            }
+            
+            &::-webkit-scrollbar-thumb:hover {
+              background-color: rgba(0, 0, 0, 0.1);
+            }           
+            .card{
+                display: flex;
+                flex-direction: column;
+                gap:0.4em;
+                .headercard{
+                    display:flex ;
+                    justify-content:space-between;
+                    align-items:center;
+                    padding: 1%;
+                    .avatarName{
+                        display: flex;
+                        align-items: center;
+                        gap : 10% ;
+                        p{
+                            font-family: 'Montserrat';
+                            font-style: normal;
+                            font-weight: 600;
+                            font-size: 12px;
+                            line-height: 17px;    
+                            letter-spacing: -0.5px;                
+                        }
+                    }
+                    .Date{
+                        p{
+                            font-family: 'Montserrat';
+                            font-style: normal;
+                            font-weight: 600;
+                            font-size: 12px;
+                            line-height: 17px;  
+                            letter-spacing: -0.5px;
+                            color: #6E6E6E;                  
+                        }
+                    }    
+               }
+                .CardDesk{
+                    max-width : 27vw !important ;
+                    height: 15em;                   
+               }}
+
+        }
+}
+@media (max-width: 1399px) {
+    .container{
+        .cards{
+            .card{
+                .CardDesk{
+                    max-width : 25vw !important ;
+                    height: 12em;                   
+               }
+            }
+        }
+    }
+}
+}

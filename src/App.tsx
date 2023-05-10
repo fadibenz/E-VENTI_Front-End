@@ -4,11 +4,13 @@ import { Register, Login, EventDetails, Organizer  ,Hosted ,Saved, Following}fro
 
 const App: FC = () => {
   return <div className="App">
-     {/*<Login />*/}
-     {/*<Register />*/} 
-    {/*<EventDetails /> */}
-    {/*<Organizer />*/}
-     <Saved /> 
+      {/* <Login />*/}
+      {/* <Register />*/}
+      {/*<EventDetails /> */}
+      {/*<Organizer />*/}
+      {/* <Saved />*/}
+      {/* <Following />   */} 
+      <Hosted />
    
     
 

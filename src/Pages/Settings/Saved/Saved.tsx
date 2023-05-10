@@ -7,7 +7,7 @@ import Ticket from '../../../../public/Assets/Icons/Ticket.svg' ;
 import  mainPhoto from '../../../../public/Assets/Images/EventDetails/mainPhoto.jpg' ;
 import { EventCard } from '../../../Components';
 import v from '../../../../public/Assets/Icons/Triangle_down.svg' ;
-import { backdropClasses, dividerClasses, Stack } from '@mui/material';
+import { Avatar, backdropClasses, dividerClasses, Stack } from '@mui/material';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
@@ -23,27 +23,27 @@ import Navbar from '../../../Components/Navbar/Navbar' ;
 
 export const Saved = () => {
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('1076')) ;
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('1142')) ;
 
   const [list , setList] = useState([
-    {id:1 , img:{mainPhoto} , location:'Oran' , date:'11/11' , title:'Esi oran Event' , category:'category' , className:''    ,price: '50$'},
-    {id:2 , img:{mainPhoto} , location:'Alger' , date:'12/12' , title:'Esi alger Event' , category:'category' , className:''  ,price: 'Free'},
-    {id:3 , img:{mainPhoto} , location:'Sba' , date:'13/13' , title:'Esi Sba Event' , category:'category' , className:''      ,price: '800DA'},
-    {id:4 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' , className:'',price: '62€'},
-    {id:5 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' , className:'',price: '10da'},
-    {id:6 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' , className:'',price: '67DA'},
-    {id:7 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' , className:'',price: 'free'},
-    {id:7 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' , className:'',price: 'free'},
-    {id:7 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' , className:'',price: 'free'},
-    {id:7 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' , className:'',price: 'free'},
-    {id:7 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' , className:'',price: 'free'},
+    {id:1 , img:{mainPhoto} , location:'Oran'   , date:'11/11' , title:'Esi oran Event'   , category:'category' ,price: '50$'},
+    {id:2 , img:{mainPhoto} , location:'Alger'  , date:'12/12' , title:'Esi alger Event'  , category:'category' ,price: 'Free'},
+    {id:3 , img:{mainPhoto} , location:'Sba'    , date:'13/13' , title:'Esi Sba Event'    , category:'category' ,price: '800DA'},
+    {id:4 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' ,price: '62€'},
+    {id:5 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' ,price: '10da'},
+    {id:6 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' ,price: '67DA'},
+    {id:7 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' ,price: 'free'},
+    {id:7 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' ,price: 'free'},
+    {id:7 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' ,price: 'free'},
+    {id:7 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' ,price: 'free'},
+    {id:7 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' ,price: 'free'},
  ])
- const [num , setNum] = useState(3) ;
+ const [num , setNum] = useState(4) ;
  const first_list = list.slice(0 , num) ;
  const [message , setMessage] = useState<String>('')  ;
 
  const ShowCards = (num: number) => {
-  for (let i = 1; i <= 3; i++) {
+  for (let i = 1; i <= 4; i++) {
     if (num < list.length) {
       setNum((num) => num + 1);
     } else {
@@ -73,6 +73,8 @@ const handleChange = (event: React.SyntheticEvent, newValue: number) => {
           {/*for the hosted header in md devices*/}
           <PSHFBtn />
     </div>
+
+    
     <div className={SY.container}>
     <div className={SY.hostedheader}>{/*for the header container in mobile version */}
            <div className={SY.headerrect}>
@@ -135,7 +137,20 @@ const handleChange = (event: React.SyntheticEvent, newValue: number) => {
              return(
                 <> 
                    <div className={SY.card} key={card.id} >
-                    <EventCard img={mainPhoto} location={card.location} date={card.date} title={card.title} category={'category'} price ={card.price} className ={''} />
+                      <div className={SY.headercard}>
+                           <div className={SY.avatarName}>
+                             <Avatar 
+                               alt={'Organizer name'}
+                               src={''}
+                               sx={{ width:{xs:'30px' ,md:'40px'}, height: {xs:'30px' , md:'40px'} }}
+                             />
+                             <p>Organizer</p>
+                           </div>
+                           <div className={SY.Date}>
+                             <p>Added 12 min ago</p>
+                           </div>
+                       </div>
+                    <EventCard img={mainPhoto} location={card.location} date={card.date} title={card.title} category={'category'} price ={card.price} className ={`${SY.CardDesk}`} />
                    </div>
                 </>
              )
@@ -144,25 +159,34 @@ const handleChange = (event: React.SyntheticEvent, newValue: number) => {
           
        } 
        {(message !== '') ? <p className={SY.NoMore}> {message}</p> 
-        :
+        :<>
         <div className={SY.EventCTA}>
         <button
                onClick={() => ShowCards(num )}
-               className = {SY.vmbtn}
+               
         >
             <img className={SY.btnIcon} src={v}/>
             <div><p >View more</p></div>
        </button>
        </div>
+       <button
+          onClick={() => ShowCards(num )}
+          className = {SY.vmbtn}
+       >
+         View more
+       </button>
+       </>
        }
 
       
        
        </div>
-       </div>
        <div className={SY.titleDesk}>
            <p className={SY.rl}>View you Saved Events</p>
        </div>
+       </div>
+       
+
     
    </>
   )

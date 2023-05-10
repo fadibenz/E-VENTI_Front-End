@@ -27,9 +27,6 @@ const EventCard: FC<EventCardProps> = ({img, location, date, title, category, cl
             alt=''
             className={SY.Barcode}
           />
-          <button>
-            <img src='./Assets/Icons/pin_duotone.svg' alt='' />
-          </button>
           <div className={SY.Like__info}>
             <h2>{category}</h2>
             <p>{title}</p>
