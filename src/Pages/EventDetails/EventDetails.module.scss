@@ -88,11 +88,26 @@
   border: 1px solid $grey;
   padding: 0.6em 1em;
   position: relative;
+  .category {
+    position: absolute;
+    font-weight: 500;
+    font-size: 0.8rem;
+    background-color: black;
+    color: white;
+    padding: 0.2em 0.7em;
+    top: -25px;
+    left: -1px;
+  }
   &__info {
     display: flex;
     gap: 1em;
     font-size: 1rem;
     align-items: center;
+    img {
+      width: 80px;
+      height: 80px;
+      border-radius: 100px;
+    }
     span {
       color: $Primary--color;
       font-weight: 500;
@@ -105,23 +120,17 @@
   .btncnt {
     display: flex;
     align-items: center;
+    .btn{
+      display: flex;
+      align-items: center;
+      gap: .2em;
+    }
   }
+
   .btn {
     font-size: 0.9rem;
     padding: 0.5em 1.8em;
     border: solid black 2px;
-  }
-
-  &::before {
-    content: 'Cultural';
-    position: absolute;
-    font-weight: 500;
-    font-size: 0.8rem;
-    background-color: black;
-    color: white;
-    padding: 0.2em 0.7em;
-    top: -25px;
-    left: -1px;
   }
 }
 
@@ -153,6 +162,7 @@ h1 {
 .EventDetails__item {
   display: flex;
   gap: 0.7em;
+  text-align: left;
   align-items: center;
   img {
     width: 30%;
@@ -168,6 +178,7 @@ h1 {
 
 .EventDetails__mod {
   position: relative;
+  text-align: left;
   img {
     width: 34%;
   }
@@ -323,7 +334,8 @@ h1 {
 
 .Like {
   width: 90vw;
-  margin: 2em auto;
+  margin: 3em auto;
+  margin-bottom: 7em;
   &__cnt {
     margin-block: 2em;
     display: flex;
@@ -361,14 +373,14 @@ h1 {
   .Share {
     margin-top: 3em;
   }
-.Like{
-  .Like_cnt {
-    gap: 1.5em;
+  .Like {
+    .Like_cnt {
+      gap: 1.5em;
+    }
+    .EventCard {
+      max-width: 380px;
+    }
   }
-  .EventCard{
-    max-width: 360px;
-  }
-}  
 }
 
 @media (min-width: 1300px) {

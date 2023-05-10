@@ -3,11 +3,15 @@
 @import '../../Styles/index';
 
 .Like{
+    a{
+        display: block;
+    }
     &__item{
         position: relative;
         display: flex;
         border: 1px solid;
         max-width: 400px;
+        height: 230px;
         margin: auto;
         .Barcode{
             position: absolute;
@@ -92,5 +96,10 @@
     width: 25px;
     height: 25px;
  }
+}
+
+
+.done {
+    font-size: 1.55rem;
 }
 
