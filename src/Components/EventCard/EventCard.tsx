@@ -10,9 +10,10 @@ interface EventCardProps {
   title: string,
   category: string;
   className?: string;
+  price : string ;
 }
 
-const EventCard: FC<EventCardProps> = ({img, location, date, title, category, className}) => {
+const EventCard: FC<EventCardProps> = ({img, location, date, title, category, className , price}) => {
     return (
       <article className={`${SY.Like__item} ${className} `}>
         <div className={SY.Like__Img}>
@@ -26,9 +27,6 @@ const EventCard: FC<EventCardProps> = ({img, location, date, title, category, cl
             alt=''
             className={SY.Barcode}
           />
-          <button>
-            <img src='./Assets/Icons/pin_duotone.svg' alt='' />
-          </button>
           <div className={SY.Like__info}>
             <h2>{category}</h2>
             <p>{title}</p>
@@ -45,7 +43,7 @@ const EventCard: FC<EventCardProps> = ({img, location, date, title, category, cl
           </div>
           <div className={SY.Icon__cnt}>
             <BsTicketPerforated className={SY.Ticket} />
-            <h4>Free</h4>
+            <h4>{price}</h4>
           </div>
         </div>
       </article>

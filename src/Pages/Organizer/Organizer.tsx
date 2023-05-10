@@ -80,6 +80,7 @@ const Organizer: FC<OrganizerProps> = () => {
                 date='16 june'
                 title='Lorem ipsum'
                 category='Business'
+                price='Free'
               />
               <EventCard
                 img='./Assets/Images/EventDetails/mainPhoto.jpg'
@@ -87,6 +88,7 @@ const Organizer: FC<OrganizerProps> = () => {
                 date='16 june'
                 title='Lorem ipsum'
                 category='Business'
+                price='50$'
               />
             </div>
             <div className={SY.Events__CTA}>
@@ -111,6 +113,7 @@ const Organizer: FC<OrganizerProps> = () => {
                 date='16 june'
                 title='Lorem ipsum'
                 category='Business'
+                price='11£'
               />
               <EventCard
                 img='./Assets/Images/EventDetails/mainPhoto.jpg'
@@ -118,6 +121,7 @@ const Organizer: FC<OrganizerProps> = () => {
                 date='16 june'
                 title='Lorem ipsum'
                 category='Business'
+                price='11£'
               />
             </div>
             <div className={SY.Events__CTA}>

@@ -5,4 +5,6 @@ import EventCard from "./EventCard/EventCard";
 import Navbar from "./Navbar/Navbar";
 import Footer from "./Footer/Footer";
 
-export {AuthLayout, InputField, Password, EventCard, Navbar, Footer};
+
+
+export {AuthLayout, InputField, Password, EventCard, Navbar, Footer };
