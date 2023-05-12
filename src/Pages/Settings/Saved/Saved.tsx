@@ -25,6 +25,9 @@ export const Saved = () => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('1142')) ;
 
+
+
+  {/*hadi hiya list li thot fiha kolech ya3ni kamel les evenments li dayrlhom l user saved */}
   const [list , setList] = useState([
     {id:1 , img:{mainPhoto} , location:'Oran'   , date:'11/11' , title:'Esi oran Event'   , category:"Sport" ,price: '50$'},
     {id:2 , img:{mainPhoto} , location:'Alger'  , date:'12/12' , title:'Esi alger Event'  , category:"Health" ,price: 'Free'},
@@ -151,12 +154,12 @@ const handleChange = (event: React.SyntheticEvent, newValue: number) => {
           <div className={SY.Categories}>
             <p>All Categories</p>
           </div>
-          <Tab icon={''} iconPosition="start" label="Sport"    sx={{mb: isSmallScreen ? 0 : 2 }}/>
-          <Tab icon={''} iconPosition="start" label="Health"   sx={{mb: isSmallScreen ? 0 : 2 }}/>
-          <Tab icon={''} iconPosition="start" label="Business" sx={{mb: isSmallScreen ? 0 : 2 }}/>
-          <Tab icon={''} iconPosition="start" label="Cultural" sx={{mb: isSmallScreen ? 0 : 2 }}/>
-          <Tab icon={''} iconPosition="start" label="Music"    sx={{mb: isSmallScreen ? 0 : 2 }}/>
-          <Tab icon={''} iconPosition="start" label="Historic" sx={{mb: isSmallScreen ? 0 : 2 }}/>
+          <Tab icon={''} iconPosition="start" label="Sport"    sx={{mb: isSmallScreen ? 0 : 5 }}/>
+          <Tab icon={''} iconPosition="start" label="Health"   sx={{mb: isSmallScreen ? 0 : 5 }}/>
+          <Tab icon={''} iconPosition="start" label="Business" sx={{mb: isSmallScreen ? 0 : 5 }}/>
+          <Tab icon={''} iconPosition="start" label="Cultural" sx={{mb: isSmallScreen ? 0 : 5 }}/>
+          <Tab icon={''} iconPosition="start" label="Music"    sx={{mb: isSmallScreen ? 0 : 5 }}/>
+          <Tab icon={''} iconPosition="start" label="Historic" sx={{mb: isSmallScreen ? 0 : 5 }}/>
       </Tabs>
     </Box>
 
@@ -175,7 +178,7 @@ const handleChange = (event: React.SyntheticEvent, newValue: number) => {
                              <Avatar 
                                alt={'Organizer name'}
                                src={''}
-                               sx={{ width:{xs:'30px' ,md:'40px'}, height: {xs:'30px' , md:'40px'} }}
+                               sx={{ width:{xs:'30px' ,md:'50px'}, height: {xs:'30px' , md:'50px'} }}
                              />
                              <p>Organizer</p>
                            </div>
