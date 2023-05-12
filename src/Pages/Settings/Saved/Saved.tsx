@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SY from './Saved.module.scss';
 import V from '../../../../public/Assets/Icons/Vshape.svg' ;
 import Save from  '../../../../public/Assets/Icons/Saved.svg';
@@ -7,41 +7,62 @@ import Ticket from '../../../../public/Assets/Icons/Ticket.svg' ;
 import  mainPhoto from '../../../../public/Assets/Images/EventDetails/mainPhoto.jpg' ;
 import { EventCard } from '../../../Components';
 import v from '../../../../public/Assets/Icons/Triangle_down.svg' ;
-import { Avatar, backdropClasses, dividerClasses, Stack } from '@mui/material';
+import { Avatar} from '@mui/material';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import {PSHFBtn} from '../../../Components/PSHFBtn/PSHFBtn';
 import { useTheme } from '@mui/material/styles';
 import { useMediaQuery } from '@mui/material';
-import { Theme } from '@mui/material/styles/createTheme';
-import Navbar from '../../../Components/Navbar/Navbar' ; 
-
-
- const Saved = () => {
+const Saved = () => {
   const theme = useTheme<any>();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('1142')) ;
 
+
+
+  {/*hadi hiya list li thot fiha kolech ya3ni kamel les evenments li dayrlhom l user saved */}
   const [list , setList] = useState([
-    {id:1 , img:{mainPhoto} , location:'Oran'   , date:'11/11' , title:'Esi oran Event'   , category:'category' ,price: '50$'},
-    {id:2 , img:{mainPhoto} , location:'Alger'  , date:'12/12' , title:'Esi alger Event'  , category:'category' ,price: 'Free'},
-    {id:3 , img:{mainPhoto} , location:'Sba'    , date:'13/13' , title:'Esi Sba Event'    , category:'category' ,price: '800DA'},
-    {id:4 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' ,price: '62€'},
-    {id:5 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' ,price: '10da'},
-    {id:6 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' ,price: '67DA'},
-    {id:7 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' ,price: 'free'},
-    {id:7 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' ,price: 'free'},
-    {id:7 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' ,price: 'free'},
-    {id:7 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' ,price: 'free'},
-    {id:7 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' ,price: 'free'},
+    {id:1 , img:{mainPhoto} , location:'Oran'   , date:'11/11' , title:'Esi oran Event'   , category:"Sport" ,price: '50$'},
+    {id:2 , img:{mainPhoto} , location:'Alger'  , date:'12/12' , title:'Esi alger Event'  , category:"Health" ,price: 'Free'},
+    {id:3 , img:{mainPhoto} , location:'Sba'    , date:'13/13' , title:'Esi Sba Event'    , category:"Business" ,price: '800DA'},
+    {id:4 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:"Cultural" ,price: '62€'},
+    {id:5 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:"Music" ,price: '10da'},
+    {id:6 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:"Historic" ,price: '67DA'},
+    {id:7 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:"Sport" ,price: 'free'},
+    {id:8 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:"Health" ,price: 'free'},
+    {id:9 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:"Business" ,price: 'free'},
+    {id:10 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:"Cultural" ,price: 'free'},
+    {id:11 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:"Music" ,price: 'free'},
+    {id:12 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:"Historic" ,price: 'free'},
+    {id:13 , img:{mainPhoto} , location:'Oran'   , date:'11/11' , title:'Esi oran Event'   , category:"Sport" ,price: '50$'},
+    {id:14 , img:{mainPhoto} , location:'Alger'  , date:'12/12' , title:'Esi alger Event'  , category:"Health" ,price: 'Free'},
+    {id:15 , img:{mainPhoto} , location:'Sba'    , date:'13/13' , title:'Esi Sba Event'    , category:"Business" ,price: '800DA'},
+    {id:16 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:"Cultural" ,price: '62€'},
+    {id:17 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:"Music" ,price: '10da'},
+    {id:18 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:"Historic" ,price: '67DA'},
+    {id:19 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:"Sport" ,price: 'free'},
+    {id:20 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:"Health" ,price: 'free'},
+    {id:21 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:"Business" ,price: 'free'},
+    {id:22 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:"Cultural" ,price: 'free'},
+    {id:23 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:"Music" ,price: 'free'},
+    {id:24 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:"Historic" ,price: 'free'},
+    {id:25 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:"Music" ,price: '10da'},
+    {id:26 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:"Historic" ,price: '67DA'},
+    {id:27 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:"Sport" ,price: 'free'},
+    {id:28 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:"Health" ,price: 'free'},
+    {id:29 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:"Business" ,price: 'free'},
+    
  ])
  const [num , setNum] = useState(4) ;
- const first_list = list.slice(0 , num) ;
+ const [SeleCate , setSeleCate] = useState('') ;
+ const [CategList , setCategList] = useState([...list]) ; 
+ const first_list = CategList.slice(0 , num) ;
  const [message , setMessage] = useState<String>('')  ;
+
 
  const ShowCards = (num: number) => {
   for (let i = 1; i <= 4; i++) {
-    if (num < list.length) {
+    if (num < CategList.length) {
       setNum((num) => num + 1);
     } else {
       setMessage((message) => 'No More Saved Events') ; 
@@ -53,22 +74,33 @@ import Navbar from '../../../Components/Navbar/Navbar' ;
 const [value, setValue] = React.useState(0); /*for the list of categories */
 const handleChange = (event: React.SyntheticEvent, newValue: number) => {
   setValue(newValue);
+  switch(newValue) {
+    case 1 :
+      setCategList(CategList => list.filter((element) => element.category === "Sport")) 
+    break ;
+    case 2 :
+      setCategList(CategList => list.filter((element) => element.category === "Health")) 
+    break ;
+    case 3 :
+      setCategList(CategList => list.filter((element) => element.category === "Business")) 
+    break ;
+    case 4 :
+      setCategList(CategList => list.filter((element) => element.category === "Cultural")) 
+    break ;
+    case 5 :
+      setCategList(CategList => list.filter((element) => element.category === "Music")) 
+    break ;
+    case 6 :
+      setCategList(CategList => list.filter((element) => element.category === "Historic")) 
+    break ;
+  }
+
 };/*for the list of catigories*/
+
+
 
   return (
    <>
-    <div className={SY.MobileVersion}> {/*for the mobile version header*/}
-       <p className={SY.MainTitle}>Settings</p>
-       <button className={SY.wow}>
-          <img src={V} alt="<" />
-       </button>
-    </div>
-    {/* <div className={SY.navbar}>
-    </div> */}
-    <div className={SY.PSHFBtn}>
-          {/*for the hosted header in md devices*/}
-          <PSHFBtn />
-    </div>
 
     
     <div className={SY.container}>
@@ -105,8 +137,8 @@ const handleChange = (event: React.SyntheticEvent, newValue: number) => {
             "& button" : {fontFamily : 'Montserrat',
                           fontStyle: 'normal',
                           fontWeight: '600' ,
-                          fontSize: '12px'  ,
-                          lineHeight: '15px', 
+                          fontSize:{md :'16px' , xs : "12px"}  ,
+                          lineHeight: '20px', 
                           color: 'black',
                          } ,                 
            }}
@@ -114,12 +146,12 @@ const handleChange = (event: React.SyntheticEvent, newValue: number) => {
           <div className={SY.Categories}>
             <p>All Categories</p>
           </div>
-          <Tab icon={''} iconPosition="start" label="Sport"    sx={{mb: isSmallScreen ? 0 : 2 }}/>
-          <Tab icon={''} iconPosition="start" label="Health"   sx={{mb: isSmallScreen ? 0 : 2 }}/>
-          <Tab icon={''} iconPosition="start" label="Business" sx={{mb: isSmallScreen ? 0 : 2 }}/>
-          <Tab icon={''} iconPosition="start" label="Cultural" sx={{mb: isSmallScreen ? 0 : 2 }}/>
-          <Tab icon={''} iconPosition="start" label="Music"    sx={{mb: isSmallScreen ? 0 : 2 }}/>
-          <Tab icon={''} iconPosition="start" label="Historic" sx={{mb: isSmallScreen ? 0 : 2 }}/>
+          <Tab icon={''} iconPosition="start" label="Sport"    sx={{mb: isSmallScreen ? 0 : 5 }}/>
+          <Tab icon={''} iconPosition="start" label="Health"   sx={{mb: isSmallScreen ? 0 : 5 }}/>
+          <Tab icon={''} iconPosition="start" label="Business" sx={{mb: isSmallScreen ? 0 : 5 }}/>
+          <Tab icon={''} iconPosition="start" label="Cultural" sx={{mb: isSmallScreen ? 0 : 5 }}/>
+          <Tab icon={''} iconPosition="start" label="Music"    sx={{mb: isSmallScreen ? 0 : 5 }}/>
+          <Tab icon={''} iconPosition="start" label="Historic" sx={{mb: isSmallScreen ? 0 : 5 }}/>
       </Tabs>
     </Box>
 
@@ -138,7 +170,7 @@ const handleChange = (event: React.SyntheticEvent, newValue: number) => {
                              <Avatar 
                                alt={'Organizer name'}
                                src={''}
-                               sx={{ width:{xs:'30px' ,md:'40px'}, height: {xs:'30px' , md:'40px'} }}
+                               sx={{ width:{xs:'30px' ,md:'50px'}, height: {xs:'30px' , md:'50px'} }}
                              />
                              <p>Organizer</p>
                            </div>
@@ -146,8 +178,10 @@ const handleChange = (event: React.SyntheticEvent, newValue: number) => {
                              <p>Added 12 min ago</p>
                            </div>
                        </div>
-                    <EventCard img={mainPhoto} location={card.location} date={card.date} title={card.title} category={'category'} price ={card.price} className ={`${SY.CardDesk}`} id='12' />
-                   </div>
+
+
+
+                    <EventCard img={mainPhoto} location={card.location} date={card.date} title={card.title} category={'category'} price ={card.price} className ={`${SY.CardDesk}`} id=           </div>
                 </>
              )
              

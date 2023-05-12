@@ -33,10 +33,10 @@ const Hosted = () => {
       {id:2 , img:{mainPhoto} , location:'Alger' , date:'12/12' , title:'Esi alger Event' , category:'category' , className:''  ,price: 'Free',ispop : false},
       {id:3 , img:{mainPhoto} , location:'Sba' , date:'13/13' , title:'Esi Sba Event' , category:'category' , className:''      ,price: '800DA', ispop : false},
       {id:4 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' , className:'',price: '62€', ispop : false},
-      {id:4 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' , className:'',price: '62€', ispop : false},
-      {id:4 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' , className:'',price: '62€', ispop : false},
-      {id:4 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' , className:'',price: '62€', ispop : false},
-      {id:4 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' , className:'',price: '62€', ispop : false},
+      {id:5 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' , className:'',price: '62€', ispop : false},
+      {id:6 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' , className:'',price: '62€', ispop : false},
+      {id:7 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' , className:'',price: '62€', ispop : false},
+      {id:8 , img:{mainPhoto} , location:'Bijaya' , date:'14/14' , title:'Esi bijaya Event' , category:'category' , className:'',price: '62€', ispop : false},
   ])
 
 
@@ -81,20 +81,12 @@ function handlePop(ind: number, boolvalue: boolean) {
    setList(newList);
  }
 
+ 
+
   return (
     <>
    
-    <div className='MobileVersion'> {/*for the mobile version header*/}
-      <p className='MainTitle'>Settings</p>
-        <button className='wow'>
-         <img src={V} alt="<" />
-        </button>
-    </div>
-    
-    <div className='PSHFBtn'>
-       {/*for the hosted header in md devices*/}
-       <PSHFBtn />
-    </div>
+
 
     <div className='container'> {/*For all the page*/}
        <div className='hostedheader'>{/*for the header container in mobile version */}
@@ -148,10 +140,10 @@ function handlePop(ind: number, boolvalue: boolean) {
                              <div><p>Delete</p></div>
                           </button>
                       </div>  
-                      <ModelBox pop={card.ispop}  handleRemoveItem={handleRemoveItem} ind = {card.id}  handlePop={handlePop} index={index} />
+                      <ModelBox pop={card.ispop}  handleRemoveItem={handleRemoveItem} ind = {card.id}  handlePop={handlePop} index={index} /> 
                    </div>
                  
-                   
+                  
                    
                    
                 </>
@@ -163,7 +155,9 @@ function handlePop(ind: number, boolvalue: boolean) {
            
        </div>
      
- 
+       <div className="titleDesk">
+           <p className="rl">View or edit your events</p>
+       </div>
     </div>
 
 

@@ -37,23 +37,47 @@
   border-right: 3px solid black;
 }
 
-.btn:hover {
-  background-color:black;
+.btn:hover{
+  font-size: 29px;
+  line-height: 18px;
+}
+
+.btn:focus{
+  background-color: #000000;
 }
 
 
 
-.Profile:hover{
+
+
+
+
+.Profile:focus{
   color : #F1E7DB ;
 }
 
-.Saved:hover{
+.Saved:focus{
   color :#F1E7DB ; 
 }
-.Hosted:hover{
+.Hosted:focus{
   color:  #E9DBFD;
 }
 
-.Following:hover{
+.Following:focus{
   color: #8BD2BD;
 }
+
+
+
+
+@media (width > 1142px) {
+  .Mobile{
+    display: none;
+  }
+}
+@media (width < 1142px){
+  .DeskTop{
+    display: none;
+  }
+}
+
