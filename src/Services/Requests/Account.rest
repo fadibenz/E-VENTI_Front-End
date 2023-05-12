@@ -1,0 +1,9 @@
+POST https://2cpibackend.azurewebsites.net/api/Account/Authenticate
+
+content-type: multipart/form-data
+
+{
+  "Password": "123456aA#",
+  "Identifier": "Fadi12345",
+  "RememberMe": "true"
+}

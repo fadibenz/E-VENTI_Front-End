@@ -1,8 +1,9 @@
 import { FC, useState, ReactNode } from 'react';
 import SY from './AuthLayout.module.scss';
-import {  RiCloseFill } from 'react-icons/ri';
+import { RiCloseFill } from 'react-icons/ri';
 import { FcGoogle } from 'react-icons/fc';
 import { BsFacebook } from 'react-icons/bs';
+import { useNavigate } from 'react-router';
 interface AuthLayoutProps {
   children: ReactNode;
   Pagetitle: String;
@@ -10,9 +11,14 @@ interface AuthLayoutProps {
   className?: string;
 }
 
-const AuthLayout: FC<AuthLayoutProps> = ({ children, Pagetitle, CTA, className }) => {
+const AuthLayout: FC<AuthLayoutProps> = ({
+  children,
+  Pagetitle,
+  CTA,
+  className,
+}) => {
   const [activeBtn, setactiveBtn] = useState<boolean>(true);
-
+  const navigate = useNavigate();
   return (
     <main className={`${SY.LoginMain} ${className}`}>
       <section className={SY.LoginPhoto}>
@@ -69,6 +75,7 @@ const AuthLayout: FC<AuthLayoutProps> = ({ children, Pagetitle, CTA, className }
           <button
             onClick={() => {
               setactiveBtn(true);
+              navigate('/Login');
             }}
             className={`${SY.Restbtn} ${activeBtn ? SY.Activebtn : ''}`}
           >
@@ -77,6 +84,7 @@ const AuthLayout: FC<AuthLayoutProps> = ({ children, Pagetitle, CTA, className }
           <button
             onClick={() => {
               setactiveBtn(false);
+              navigate('/Register');
             }}
             className={`${SY.Restbtn} ${activeBtn ? '' : SY.Activebtn}`}
           >
@@ -91,7 +99,6 @@ const AuthLayout: FC<AuthLayoutProps> = ({ children, Pagetitle, CTA, className }
         <article className={SY.LoginForm__main}>
           <h1>{Pagetitle}</h1>
           {children}
-          <button className={SY.btn}>{CTA}</button>
           <div className={SY.Or}>
             <h4>or</h4>
           </div>

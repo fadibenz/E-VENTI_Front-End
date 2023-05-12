@@ -19,6 +19,19 @@
   margin-bottom: 1em;
 }
 
+
+.btn {
+  padding: 0.4em 6em;
+  transition: $Transition--duration;
+  &:hover {
+    background-color: black;
+    color: white;
+    transition: $Transition--duration;
+    border: 1px solid transparent;
+  }
+}
+
+
 .Register h1{
   margin: 1em auto 0.5em !important;
 }

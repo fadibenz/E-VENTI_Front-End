@@ -86,7 +86,7 @@ function handlePop(ind: number, boolvalue: boolean) {
   return (
     <>
    
-    
+
 
     <div className='container'> {/*For all the page*/}
        <div className='hostedheader'>{/*for the header container in mobile version */}
@@ -126,7 +126,7 @@ function handlePop(ind: number, boolvalue: boolean) {
                                   <p>Added 12 min ago</p>
                                 </div>
                             </div>
-                    <EventCard img={mainPhoto} location={card.location} date={card.date} title={card.title} category={'category'} price ={card.price} className ='CardDesk' />
+                    <EventCard img={mainPhoto} location={card.location} date={card.date} title={card.title} category={'category'} price ={card.price} className ='CardDesk' id='12'/>
                       <div className='EventCTA'>
                           <button className='Edit-color'>
                              <img className='btnIcon' src={EditIcon}/>

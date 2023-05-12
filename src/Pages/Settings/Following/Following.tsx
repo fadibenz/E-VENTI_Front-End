@@ -12,16 +12,17 @@ import FollowPlus from '../../../../public/Assets/Icons/FollowPlus.svg';
 import Follow from '../../../../public/Assets/Icons/Follow.svg' ;
 import { PSHFBtn } from "../../../Components/PSHFBtn/PSHFBtn";
 import { useTheme } from '@mui/material/styles';
-
+import { Theme } from '@mui/material/styles/createTheme';
 
 
 
 
 
 const Following = () => {
-  const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('1142')) ;
 
+  const theme = useTheme<any>();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('1142')) ;
+  
   const [list , setList] = useState([
     {id:1 , img:{mainPhoto} , location:'Oran' , date:'11/11' , title:'Esi oran Event' , category:'category' , className:''    ,price: '50$'  },
     {id:2 , img:{mainPhoto} , location:'Alger' , date:'12/12' , title:'Esi alger Event' , category:'category' , className:''  ,price: 'Free' },
@@ -62,8 +63,6 @@ interface OrganizerAvatarProps{
  
   return (
     <>
-    
-
     <div className={SY.container}>
     <div className={SY.followingheader}>{/*for the header container in mobile version */}
            <div className={SY.headerrect}>
@@ -152,7 +151,7 @@ interface OrganizerAvatarProps{
                             <p>Added 12 min ago</p>
                           </div>
                       </div>
-                      <EventCard img={mainPhoto} location={card.location} date={card.date} title={card.title} category={'category'} price ={card.price} className ={`${SY.CardDesk}`} />
+                      <EventCard img={mainPhoto} location={card.location} date={card.date} title={card.title} category={'category'} price ={card.price} className ={`${SY.CardDesk}`} id="12" />
                    </div>
                 </>
              )

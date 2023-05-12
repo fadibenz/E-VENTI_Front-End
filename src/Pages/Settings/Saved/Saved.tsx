@@ -14,15 +14,8 @@ import Box from '@mui/material/Box';
 import {PSHFBtn} from '../../../Components/PSHFBtn/PSHFBtn';
 import { useTheme } from '@mui/material/styles';
 import { useMediaQuery } from '@mui/material';
-
-
-
-
-
-
-
-export const Saved = () => {
-  const theme = useTheme();
+const Saved = () => {
+  const theme = useTheme<any>();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('1142')) ;
 
 
@@ -108,7 +101,6 @@ const handleChange = (event: React.SyntheticEvent, newValue: number) => {
 
   return (
    <>
-    
 
     
     <div className={SY.container}>
@@ -186,8 +178,10 @@ const handleChange = (event: React.SyntheticEvent, newValue: number) => {
                              <p>Added 12 min ago</p>
                            </div>
                        </div>
-                    <EventCard img={mainPhoto} location={card.location} date={card.date} title={card.title} category={card.category} price ={card.price} className ={`${SY.CardDesk}`} />
-                   </div>
+
+
+
+                    <EventCard img={mainPhoto} location={card.location} date={card.date} title={card.title} category={'category'} price ={card.price} className ={`${SY.CardDesk}`} id=           </div>
                 </>
              )
              
@@ -227,3 +221,4 @@ const handleChange = (event: React.SyntheticEvent, newValue: number) => {
    </>
   )
 }
+ export default Saved
