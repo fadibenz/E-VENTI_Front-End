@@ -59,23 +59,10 @@ interface OrganizerAvatarProps{
     )
   }
 
-
+ 
   return (
     <>
-    <div className={SY.MobileVersion}> {/*for the mobile version header*/}
-       <p className={SY.MainTitle}>Settings</p>
-       <button className={SY.wow}>
-          <img src={V} alt="<" />
-       </button>
-    </div>
-    <div className={SY.navbar}>
-       <Navbar/>
-    </div>
-
-    <div className={SY.PSHFBtn}>
-          {/*for the hosted header in md devices*/}
-          <PSHFBtn />
-    </div>
+    
 
     <div className={SY.container}>
     <div className={SY.followingheader}>{/*for the header container in mobile version */}
@@ -183,6 +170,8 @@ interface OrganizerAvatarProps{
 
     </>
   );
+
+ 
 };
 
 export default Following;

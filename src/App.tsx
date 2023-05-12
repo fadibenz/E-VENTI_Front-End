@@ -1,18 +1,17 @@
 import { FC, useState } from "react";
-import { Register, Login, EventDetails, Organizer  ,Hosted ,Saved, Following}from './Pages/index';
+import { Register, Login, EventDetails, Organizer  ,Hosted ,Saved, Following , SettingsRouting}from './Pages/index';
 
 
 const App: FC = () => {
   return <div className="App">
       {/* <Login />*/}
       {/* <Register />*/}
-      {/*<EventDetails /> */}
+      {/* <EventDetails /> */}
       {/*<Organizer />*/}
-      {/* <Saved />*/}
-      {/* <Following />   */} 
-      <Hosted />
-   
-    
+      {/*<Saved />*/}
+      {/*<Following />
+      <Hosted />  */}
+      <SettingsRouting/>
 
 
   </div>;
