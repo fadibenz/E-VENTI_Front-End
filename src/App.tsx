@@ -1,9 +1,10 @@
 import { FC, useState, useEffect } from 'react';
-import { Register, Login, EventDetails, Organizer } from './Pages/index';
+import { Register, Login, EventDetails, Organizer, Following, Hosted, Saved  }from './Pages/index';
 import { getCookie } from 'typescript-cookie';
 import { getUserDetails } from './Services/Users';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './Pages/Layout';
+
 const App: FC = () => {
   const [user, setUser] = useState<any>(null);
   const [token, setToken] = useState('');

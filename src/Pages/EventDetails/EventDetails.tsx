@@ -339,6 +339,7 @@ const EventDetails: FC<EventDetailsProps> = ({ config, token, user }) => {
                   category={event?.categoryName}
                   className={SY.EventCard}
                   id={event?.id}
+                  price='1000'
                 />
               );
             })}

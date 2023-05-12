@@ -1,0 +1,66 @@
+.Container{
+  box-sizing: border-box;
+  display: flex;
+  direction: column;
+  gap:80px ;
+}
+
+
+.up-down-btn{
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 26px;
+  height: 60px;
+  background: #8BD2BD;
+  border: 2px solid #000000;
+  transform: rotate(90deg);
+}
+
+.triangle-btn{
+  transform: rotate(-90deg);
+}
+
+.Avatar-card {
+  display : flex ; 
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  gap : 10px ; 
+}
+
+.Organizer-title{
+  font-family: 'Montserrat';
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 25px; 
+}
+
+
+.AvatarCards{
+  display: flex ;
+  flex-direction: column;
+  margin-left: -29px;
+  gap: 10px;
+}
+
+@media (max-width: 900px) {
+  .AvatarCards{
+    display: flex;
+    flex-direction: row;
+    margin-left: 0;
+  }
+}
+
+.Cards{
+  display:flex ; 
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+
+
+
+/* Vector 10 */
+

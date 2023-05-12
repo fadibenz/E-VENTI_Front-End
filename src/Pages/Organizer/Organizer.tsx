@@ -5,7 +5,7 @@ import { HiOutlineEnvelope } from 'react-icons/hi2';
 import { MdDone } from 'react-icons/md';
 import { EventCard, Footer, Navbar } from '../../Components/index';
 import { RxDoubleArrowRight } from 'react-icons/rx';
-import { useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { IoChevronBackOutline, IoChevronForwardOutline } from 'react-icons/io5';
 import {
   getUserDetails,
@@ -179,6 +179,7 @@ const Organizer: FC<OrganizerProps> = ({ config, user }) => {
                 title={upEvents[firstItemIndex]?.title}
                 category={upEvents[firstItemIndex]?.categoryName}
                 id={upEvents[firstItemIndex]?.id}
+                price='100'
               />
               {secondItemIndex < upEvents.length ? (
                 <EventCard
@@ -188,6 +189,7 @@ const Organizer: FC<OrganizerProps> = ({ config, user }) => {
                   title={upEvents[secondItemIndex]?.title}
                   category={upEvents[secondItemIndex]?.categoryName}
                   id={upEvents[secondItemIndex]?.id}
+                  price='100'
                 />
               ) : null}
             </div>
@@ -222,6 +224,7 @@ const Organizer: FC<OrganizerProps> = ({ config, user }) => {
                 title={pastEvents[firstItemIndex2]?.title}
                 category={pastEvents[firstItemIndex2]?.categoryName}
                 id={pastEvents[firstItemIndex2]?.id}
+                price='100'
               />
               {secondItemIndex2 < pastEvents.length ? (
                 <EventCard
@@ -231,6 +234,7 @@ const Organizer: FC<OrganizerProps> = ({ config, user }) => {
                   title={pastEvents[secondItemIndex2]?.title}
                   category={pastEvents[secondItemIndex2]?.categoryName}
                   id={pastEvents[secondItemIndex2]?.id}
+                  price='100'
                 />
               ) : null}
             </div>

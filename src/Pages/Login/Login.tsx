@@ -16,6 +16,7 @@ const Login: FC<LoginProps> = ({ setToken, setUser }) => {
   const [username, setUsername] = useState({ username: '' });
   const [password, setPassword] = useState({ password: '' });
   const navigate = useNavigate()
+  
   const handleSubmit = async (
     e: React.FormEvent<EventTarget>
   ): Promise<void> => {

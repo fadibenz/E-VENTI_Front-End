@@ -12,6 +12,7 @@ interface EventCardProps {
   category: string;
   className?: string;
   id: string;
+  price : string ;
 }
 
 const EventCard: FC<EventCardProps> = ({
@@ -22,7 +23,7 @@ const EventCard: FC<EventCardProps> = ({
   category,
   className,
   id,
-}) => {
+  price}) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -66,7 +67,7 @@ const EventCard: FC<EventCardProps> = ({
           </div>
           <div className={SY.Icon__cnt}>
             <BsTicketPerforated className={SY.Ticket} />
-            <h4>Free</h4>
+            <h4>{price}</h4>
           </div>
         </div>
       </Link>
