@@ -131,6 +131,8 @@
 
 .AvatarOrg{
     display: flex;
+    background-color: transparent;
+    border: transparent;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -238,11 +240,7 @@
     }
     .title{
         display: none ;
-    }
-
-
-
-    
+    }    
     .container{
         flex-direction:row ;
         border: 0px  ;
@@ -251,8 +249,8 @@
         position: fixed ;
         top: 8.2em ; 
         padding-right: 0px;
-        width: 80% ;
-        height: 82%;
+        width: 80vw ;
+        height: 75vh;
         margin-left: 9.13%;
         margin-right:5.13%;
         .titleDesk{

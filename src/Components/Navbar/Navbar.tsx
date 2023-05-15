@@ -13,9 +13,10 @@ const Navbar: FC<NavbarProps> = ({ user }) => {
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
   const handleClick = () => {
-    if (!user) {
+    if (user) {
+      navigate('/Dashboard/Hosted')
     } else {
-      navigate('/')
+      navigate('/Login')
     }
   };
 

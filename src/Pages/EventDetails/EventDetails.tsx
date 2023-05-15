@@ -41,22 +41,12 @@ const EventDetails: FC<EventDetailsProps> = ({ config, token, user }) => {
     save: false,
     follow: false,
   });
+  const [ended, setEnded] = useState(false);
   const [event, setEvent] = useState<any>(null);
   const [eventList, setEventList] = useState<any>(null);
   const [subscribed, setSubscribed] = useState<any>(null);
 
-
-
   useEffect(() => {
-    const getDetails = async () => {
-      try {
-        const response = await getEventDetails(id, config);
-        console.log(response);
-        setEvent(response);
-      } catch (error) {
-        console.log(error);
-      }
-    };
     const getEvents = async () => {
       try {
         const response = await getEventList(id, config);
@@ -67,6 +57,27 @@ const EventDetails: FC<EventDetailsProps> = ({ config, token, user }) => {
       }
     };
 
+    const getDetails = async () => {
+      try {
+        const response = await getEventDetails(id, config);
+        console.log(response);
+        setEvent(response);
+        const eventdate = new Date(event?.dateAndTime);
+        const currentDate = new Date();
+        if (eventdate < currentDate) {
+          setEnded(true);
+        } else {
+          setEnded(false);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getEvents();
+    getDetails();
+  }, [user, id, exists.reserve]);
+
+  useEffect(() => {
     const getSubscribed = async () => {
       try {
         const response = await subscribeList(id, config);
@@ -95,7 +106,7 @@ const EventDetails: FC<EventDetailsProps> = ({ config, token, user }) => {
 
     const getFollowers = async () => {
       const response = await getFollowersList(event?.organizerId, config);
-      console.log('Follow', response);
+      console.log(response);
       if (response) {
         setExists((prevExists) => ({
           ...prevExists,
@@ -103,21 +114,19 @@ const EventDetails: FC<EventDetailsProps> = ({ config, token, user }) => {
         }));
       }
     };
-    getDetails();
-    getEvents();
     getSubscribed();
     getSaved();
     getFollowers();
-  }, [user, id]);
-
-
+  }, [id, user, event]);
 
   const handleReserve = async () => {
     if (!exists.reserve) {
       try {
         if (window.confirm('do you want to subscribe to this event ?')) {
           const response = await subscribe(id, config);
-          setExists({ ...exists, reserve: true });
+          if (response) {
+            setExists({ ...exists, reserve: true });
+          }
           console.log(response);
         }
       } catch (error) {
@@ -280,7 +289,7 @@ const EventDetails: FC<EventDetailsProps> = ({ config, token, user }) => {
                     {getDate(event?.dateAndTime).day}
                     {'  '} {getDate(event?.dateAndTime).month}
                   </h2>
-                  <p>{getDate(event?.dateAndTime).time}</p>
+                  <p>{getDate(event?.dateAndTime).time} UTC</p>
                 </div>
               </div>
             </div>
@@ -299,7 +308,7 @@ const EventDetails: FC<EventDetailsProps> = ({ config, token, user }) => {
                 </div>
                 <p>
                   <span>
-                    {event?.numberOfSubscribers}/{event?.maxAttendees}
+                    {event?.numberOfSubscribers} /{event?.maxAttendees}
                   </span>
                   {'  '}people are attending.
                 </p>
@@ -315,7 +324,11 @@ const EventDetails: FC<EventDetailsProps> = ({ config, token, user }) => {
                 )}{' '}
                 <div>Save</div>
               </button>
-              <button className={SY.Reservebtn} onClick={handleReserve}>
+              <button
+                className={SY.Reservebtn}
+                onClick={handleReserve}
+                disabled={ended}
+              >
                 {exists.reserve ? (
                   <MdDone className={SY.btnIcon} />
                 ) : (

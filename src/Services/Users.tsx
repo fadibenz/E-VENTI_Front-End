@@ -50,3 +50,17 @@ export const getFollowersList = async (id: string, config: any) => {
     console.log(error);
   }
 };
+
+
+export const getFollowingList = async (id: string, config: any) => {
+  try {
+    const response = await axios.get(
+      `${baseURl}/FollowingList?userId=${id}`,
+      config
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+

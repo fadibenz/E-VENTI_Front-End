@@ -397,8 +397,7 @@
       color: #6e6e6e;
     }
     .container .cards .card .CardDesk {
-      max-width: 25vw !important;
-      height: 14em;
+      max-width: 380px !important;
     }
     .container .cards .EventCTA {
       gap : 17px ; 
@@ -439,3 +438,4 @@
 
   
   
+}

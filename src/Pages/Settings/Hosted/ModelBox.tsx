@@ -8,18 +8,12 @@ import NoIcon from '../../../../public/Assets/Icons/No.svg';
 
 interface ModelBoxProps{
   pop : boolean ;
-  handleRemoveItem : (id : number) => void ; 
-  ind : number ;
+  handleRemoveItem : (id : string) => void ; 
+  ind : string ;
   handlePop : (ind : number , boolvalue : boolean ) => void ;
   index : number ;  
 }
-
-
-
-
 export const ModelBox = ({pop , handleRemoveItem , ind , handlePop , index } : ModelBoxProps) => {
-
-
   return (pop)? (
     <>
       <div className='SurContainer'    

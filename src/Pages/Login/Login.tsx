@@ -5,6 +5,7 @@ import { AuthLayout, Password, InputField } from '../../Components/index';
 import { BsPerson, BsCheckCircle, BsCheckCircleFill } from 'react-icons/bs';
 import { setCookie } from 'typescript-cookie';
 import { useNavigate } from 'react-router';
+import {getExpirationTime} from '../../Helpers/index' 
 
 interface LoginProps {
   setToken: (param: string) => void;
@@ -15,6 +16,7 @@ const Login: FC<LoginProps> = ({ setToken, setUser }) => {
   const [checkMark, setcheckMark] = useState<boolean>(false);
   const [username, setUsername] = useState({ username: '' });
   const [password, setPassword] = useState({ password: '' });
+  
   const navigate = useNavigate()
   
   const handleSubmit = async (
@@ -31,8 +33,10 @@ const Login: FC<LoginProps> = ({ setToken, setUser }) => {
         data.append('RememberMe', 'true');
         const response = await logMe(data);
         console.log(response.token, response.userData);
-        setCookie('Token', response.token, { expires: 3 });
-        setCookie('UserID', response.userData.id, { expires: 3 });
+        const expirationTime = getExpirationTime(response?.token);
+        console.log(expirationTime);
+        setCookie('Token', response.token, { expires: expirationTime });
+        setCookie('UserID', response.userData.id, {expires: expirationTime});
         setToken(response.token);
         setPassword({ ...password, password: '' });
         setUsername({ ...username, username: '' });

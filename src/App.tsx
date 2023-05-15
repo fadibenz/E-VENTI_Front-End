@@ -1,5 +1,14 @@
 import { FC, useState, useEffect } from 'react';
-import { Register, Login, EventDetails, Organizer, Following, Hosted, Saved  }from './Pages/index';
+import {
+  Register,
+  Login,
+  EventDetails,
+  Organizer,
+  Following,
+  Hosted,
+  Saved,
+} from './Pages/index';
+import { SettingsRouting } from './Pages/index';
 import { getCookie } from 'typescript-cookie';
 import { getUserDetails } from './Services/Users';
 import { Routes, Route } from 'react-router-dom';
@@ -17,7 +26,6 @@ const App: FC = () => {
     const Token = getCookie('Token');
     const UserID = getCookie('UserID');
     if (Token) {
-      console.log(Token);
       setToken(Token);
     }
 
@@ -42,10 +50,8 @@ const App: FC = () => {
           path='/Login'
           element={<Login setToken={setToken} setUser={setUser} />}
         />
-        <Route
-          path='/Register'
-          element={<Register setToken={setToken} />}
-        />
+        <Route path='/Register' element={<Register setToken={setToken} />} />
+
         <Route path='/' element={<Layout user={user} />}>
           <Route
             path='/EventDetails/:id'
@@ -56,11 +62,18 @@ const App: FC = () => {
             element={<Organizer user={user} config={config} />}
           />
         </Route>
+        <Route path='/Dashboard' element={<SettingsRouting user={user} />}>
+          <Route
+            path='/Dashboard/Following'
+            element={<Following config={config} user={user?.id} />}
+          />
+          <Route path='/Dashboard/Saved' element={<Saved config={config} />} />
+          <Route
+            path='/Dashboard/Hosted'
+            element={<Hosted config={config} user={user?.id} />}
+          />
+        </Route>
       </Routes>
-      {/* <Login setToken={setToken} setUser={setUser} /> */}
-      {/* <Register setToken={setToken} setUser={setUser} /> */}
-      {/* <EventDetails config={config} token={token} user={user} /> */}
-      {/* <Organizer config={config} user={user} /> */}
     </div>
   );
 };
