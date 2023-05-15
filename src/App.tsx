@@ -13,6 +13,7 @@ import { getCookie } from 'typescript-cookie';
 import { getUserDetails } from './Services/Users';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './Pages/Layout';
+import ScrollToTop from './Pages/ScrollToTop';
 
 const App: FC = () => {
   const [user, setUser] = useState<any>(null);
@@ -41,39 +42,46 @@ const App: FC = () => {
 
   return (
     <div className='App'>
-      <Routes>
-        <Route
-          path='/'
-          element={<Login setToken={setToken} setUser={setUser} />}
-        />
-        <Route
-          path='/Login'
-          element={<Login setToken={setToken} setUser={setUser} />}
-        />
-        <Route path='/Register' element={<Register setToken={setToken} />} />
+      <ScrollToTop>
+        <Routes>
+          <Route
+            path='/'
+            element={<Login setToken={setToken} setUser={setUser} />}
+          />
+          <Route
+            path='/Login'
+            element={<Login setToken={setToken} setUser={setUser} />}
+          />
+          <Route path='/Register' element={<Register setToken={setToken} />} />
 
-        <Route path='/' element={<Layout user={user} />}>
-          <Route
-            path='/EventDetails/:id'
-            element={<EventDetails user={user} token={token} config={config} />}
-          />
-          <Route
-            path='/Organizer/:id'
-            element={<Organizer user={user} config={config} />}
-          />
-        </Route>
-        <Route path='/Dashboard' element={<SettingsRouting user={user} />}>
-          <Route
-            path='/Dashboard/Following'
-            element={<Following config={config} user={user?.id} />}
-          />
-          <Route path='/Dashboard/Saved' element={<Saved config={config} />} />
-          <Route
-            path='/Dashboard/Hosted'
-            element={<Hosted config={config} user={user?.id} />}
-          />
-        </Route>
-      </Routes>
+          <Route path='/' element={<Layout user={user} />}>
+            <Route
+              path='/EventDetails/:id'
+              element={
+                <EventDetails user={user} token={token} config={config} />
+              }
+            />
+            <Route
+              path='/Organizer/:id'
+              element={<Organizer user={user} config={config} />}
+            />
+          </Route>
+          <Route path='/Dashboard' element={<SettingsRouting user={user} />}>
+            <Route
+              path='/Dashboard/Following'
+              element={<Following config={config} user={user?.id} />}
+            />
+            <Route
+              path='/Dashboard/Saved'
+              element={<Saved config={config} />}
+            />
+            <Route
+              path='/Dashboard/Hosted'
+              element={<Hosted config={config} user={user?.id} />}
+            />
+          </Route>
+        </Routes>
+      </ScrollToTop>
     </div>
   );
 };

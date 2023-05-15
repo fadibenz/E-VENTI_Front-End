@@ -25,7 +25,7 @@ export const ModelBox = ({pop , handleRemoveItem , ind , handlePop , index } : M
           </div>
           <div className='SurContent'>
               <div>
-                 <p>This action be undone</p>
+                 <p>This action can't be undone</p>
               </div>
               <div>
               <div className='EventCTA'>

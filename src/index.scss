@@ -1,7 +1,11 @@
 @import './Styles/variables';
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: $Primary--font;
   line-height: 1.5;
   font-weight: 400;
 

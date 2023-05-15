@@ -79,38 +79,65 @@ const EventDetails: FC<EventDetailsProps> = ({ config, token, user }) => {
 
   useEffect(() => {
     const getSubscribed = async () => {
-      try {
-        const response = await subscribeList(id, config);
-        if (response) {
-          setSubscribed(response);
-          setExists((prevExists) => ({
-            ...prevExists,
-            reserve: response?.some((m: any) => m.username === user?.username),
-          }));
+      if (user) {
+        try {
+          const response = await subscribeList(id, config);
+          if (response) {
+            setSubscribed(response);
+            setExists((prevExists) => ({
+              ...prevExists,
+              reserve: response?.some(
+                (m: any) => m.username === user?.username
+              ),
+            }));
+          }
+        } catch (error) {
+          console.log(error);
         }
-      } catch (error) {
-        console.log(error);
+      } else {
+        setExists((prevExists) => ({
+          ...prevExists,
+          reserve: false,
+        }));
       }
     };
 
     const getSaved = async () => {
-      const response = await getSavedList(config);
-      console.log('saved:', response);
-      if (response) {
+      if (user) {
+        try {
+          const response = await getSavedList(config);
+          console.log('saved:', response);
+          if (response) {
+            setExists((prevExists) => ({
+              ...prevExists,
+              save: response?.some((m: any) => m.id === id),
+            }));
+          }
+        } catch {}
+      } else {
         setExists((prevExists) => ({
           ...prevExists,
-          save: response?.some((m: any) => m.id === id),
+          save: false,
         }));
       }
     };
 
     const getFollowers = async () => {
-      const response = await getFollowersList(event?.organizerId, config);
-      console.log(response);
-      if (response) {
+      if (user) {
+        try {
+          const response = await getFollowersList(event?.organizerId, config);
+          console.log(response);
+          if (response) {
+            setExists((prevExists) => ({
+              ...prevExists,
+              follow: response?.some((m: any) => m.username === user?.username),
+            }));
+          }
+        } catch (error) {}
+      } else {
         setExists((prevExists) => ({
           ...prevExists,
-          follow: response?.some((m: any) => m.username === user?.username),
+          follow: false,
         }));
       }
     };
@@ -120,65 +147,76 @@ const EventDetails: FC<EventDetailsProps> = ({ config, token, user }) => {
   }, [id, user, event]);
 
   const handleReserve = async () => {
-    if (!exists.reserve) {
-      try {
-        if (window.confirm('do you want to subscribe to this event ?')) {
-          const response = await subscribe(id, config);
-          if (response) {
-            setExists({ ...exists, reserve: true });
-          }
-          console.log(response);
-        }
-      } catch (error) {
-        console.log(error);
-      }
+    if (!user) {
+      alert('You must be logged in first!');
     } else {
-      try {
-        if (window.confirm('do you want to unsubscribe to this event ?')) {
-          const response = await Unsubscribe(id, config);
-          setExists({ ...exists, reserve: false });
-          console.log(response);
+      if (!exists.reserve) {
+        try {
+          if (window.confirm('do you want to subscribe to this event ?')) {
+            const response = await subscribe(id, config);
+            if (response) {
+              setExists({ ...exists, reserve: true });
+            }
+            console.log(response);
+          }
+        } catch (error) {
+          console.log(error);
         }
-      } catch (error) {
-        console.log(error);
+      } else {
+        try {
+          if (window.confirm('do you want to unsubscribe to this event ?')) {
+            const response = await Unsubscribe(id, config);
+            setExists({ ...exists, reserve: false });
+            console.log(response);
+          }
+        } catch (error) {
+          console.log(error);
+        }
       }
     }
   };
 
   const handleSave = async () => {
-    if (!exists.save) {
-      try {
-        const response = await saveEvent(id, config);
-        setExists({ ...exists, save: true });
-      } catch (error) {
-        console.log(error);
-      }
+    if (!user) {
+      alert('you must be logged in first');
     } else {
-      try {
-        const response = await unsaveEvent(id, config);
-        setExists({ ...exists, save: false });
-      } catch (error) {
-        console.log(error);
+      if (!exists.save) {
+        try {
+          const response = await saveEvent(id, config);
+          setExists({ ...exists, save: true });
+        } catch (error) {
+          console.log(error);
+        }
+      } else {
+        try {
+          const response = await unsaveEvent(id, config);
+          setExists({ ...exists, save: false });
+        } catch (error) {
+          console.log(error);
+        }
       }
     }
   };
 
   const handleFollow = async () => {
     let id = event?.organizerid;
-
-    if (!exists.follow) {
-      try {
-        const response = await followUser(id, config);
-        setExists({ ...exists, follow: true });
-      } catch (error) {
-        console.log(error);
-      }
+    if (!user) {
+      alert('you must be logged in first');
     } else {
-      try {
-        const response = await unfollowUser(id, config);
-        setExists({ ...exists, follow: false });
-      } catch (error) {
-        console.log(error);
+      if (!exists.follow) {
+        try {
+          const response = await followUser(id, config);
+          setExists({ ...exists, follow: true });
+        } catch (error) {
+          console.log(error);
+        }
+      } else {
+        try {
+          const response = await unfollowUser(id, config);
+          setExists({ ...exists, follow: false });
+        } catch (error) {
+          console.log(error);
+        }
       }
     }
   };
