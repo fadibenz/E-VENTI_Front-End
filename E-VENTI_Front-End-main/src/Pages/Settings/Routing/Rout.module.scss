@@ -1,0 +1,62 @@
+@import '../../../Styles/_variables.scss';
+@import '../../../Styles/_base';
+@import '../../../Styles/index';
+
+
+.MobileVersion{
+    .MainTitle{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 21px;
+        line-height: 17px;
+        letter-spacing: -0.5px;
+        margin-bottom: 0.6em;
+        padding : 1em ; 
+    }
+    .wow{
+        position: absolute;
+        top :10px ;
+        left :15px ; 
+        background: #000000;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+
+
+
+.PSHFBtn{
+    display: none;
+    margin-bottom: 0px;
+    margin-left: 5.13%;
+}
+
+.navbar{
+    display: none;
+}
+
+@media (width > 1141px) {
+    .navbar{
+        display: block ;
+        position:sticky;
+        top: 0px;
+    }
+    .MobileVersion {
+        display: none ;
+    }
+    .PSHFBtn{
+        display: block;
+        position: fixed; 
+        top : 5.1em ;
+        left: 4%;
+    
+    }
+}

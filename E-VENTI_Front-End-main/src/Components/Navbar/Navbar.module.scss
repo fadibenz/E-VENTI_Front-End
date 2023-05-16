@@ -1,0 +1,91 @@
+@import '../../Styles/_variables.scss';
+@import '../../Styles/_base';
+@import '../../Styles/index';
+
+.main {
+  padding: 0.8em 1.4em;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3em;
+    transition: 0.3s;
+    &:hover {
+      color: $Primary--color;
+    }
+  }
+  .Avatar {
+    flex-direction: row;
+    gap: 1em;
+  }
+  img {
+    width: 45px;
+    border-radius: 100px;
+  }
+  .Navbtn {
+    align-items: center;
+    display: flex;
+    gap: 2em;
+    p {
+      font-size: 0.8rem;
+    }
+  }
+  .NavbtnCnt {
+    display: flex;
+    gap: 1.4em;
+  }
+}
+.Mobile {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .Mobile {
+    display: block;
+  }
+  .main {
+    align-items: center;
+    transition: 0.2s;
+    // height: 300px;
+    position: relative;
+    .LOGO {
+      display: flex;
+      gap: 2em;
+      align-items: center;
+      font-size: 1.2rem;
+    }
+    .NavbtnCnt {
+      flex-direction: column;
+      background-color: white;
+      font-size: 1.4rem;
+      position: absolute;
+      width: 100%;
+      bottom: -222px;
+      left: 0px;
+      z-index: 15;
+      padding-bottom: 1em;
+      transition: 0.2s;
+      opacity: 0;
+      p {
+        font-size: 1.1rem;
+      }
+    }
+    .show {
+      opacity: 1;
+      transition: 0.2s;
+    }
+    .BTN {
+      padding-left: 1.1em;
+      gap: 1em;
+      flex-direction: row;
+    }
+    .Avatar p {
+      display: none;
+    }
+  }
+}

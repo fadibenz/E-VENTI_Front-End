@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+// COLORS
+$Primary--color: #B688F7;
+$Primary--color-dark: #6600CC;
+
+
+$Secondary--color-1: #F7DC88;
+$Secondary--color-1-dark: #F4C802;
+
+$Secondary--color-2:#8BD2BD;
+$Secondary--color-2-dark: #00CC99;
+$Secondary--color-4 : #DCF2EB;
+
+$Secondary--color-3 : #FDF5DB ;
+
+$background--color: #F1EADB;
+
+$grey: #6E6E6E;
+
+
+// TYPOGRAPHY 
+$Primary--font: 'Montserrat', sans-serif;
+
+$fs-400: 1.125rem;
+$fs-500: 1.25rem;
+$fs-600: 1.5rem;
+$fs-700: 1.75rem;
+$fs-800: 2rem;
+$fs-900: 5rem;
+
+
+// GENERAL 
+$Border: 2px solid black;
+
+$Transition--duration: .3s;
+$Transition--easing: ease-in-out;
+
+$Base--padding: 1em;
+$Base--margin: 1em;

@@ -1,0 +1,28 @@
+@import './Styles/variables';
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  font-family: $Primary--font;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+
+body {
+  font-family: $Primary--font;
+  font-size: $fs-400;
+  background-color: white;
+  color: black;
+}
+

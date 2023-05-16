@@ -1,0 +1,55 @@
+@import '../../Styles/_variables.scss';
+@import '../../Styles/_base';
+@import '../../Styles/index';
+
+.InputField__password {
+  background-color: transparent;
+  border: transparent;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+.ShowEye {
+  position: absolute;
+  top: 17px;
+  right: 10px;
+  color: $grey;
+  opacity: 1;
+}
+
+.HideEye{
+  opacity: 0;
+}
+
+
+.btn {
+  padding: 0.4em 6em;
+  transition: $Transition--duration;
+  &:hover {
+    background-color: black;
+    color: white;
+    transition: $Transition--duration;
+    border: 1px solid transparent;
+  }
+}
+
+.LoginOptions {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.84rem;
+  padding: 0.6em 0;
+  button {
+    background-color: transparent;
+    border: transparent;
+  }
+
+  &__Password {
+    color: $Primary--color;
+    font-weight: 500;
+  }
+  &__Keepme {
+    display: flex;
+    gap: 0.5em;
+  }
+}

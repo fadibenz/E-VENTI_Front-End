@@ -1,0 +1,262 @@
+@import '../../Styles/_variables.scss';
+@import '../../Styles/_base';
+@import '../../Styles/index';
+
+.Main {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.Cover img {
+  height: 270px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.Description {
+  &__img {
+    position: relative;
+    background-color: black;
+    width: fit-content;
+    padding: 0.2em;
+    border-radius: 100px;
+    margin-left: 15px;
+    margin-top: -60px;
+    margin-bottom: 1em;
+    img {
+      width: 90px;
+      height: 110px;
+      border-radius: 100px;
+    }
+  }
+
+  &__CTA {
+    background-image: url('/src/assets/gray-concrete-wall\ 1.png');
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: flex;
+    padding: 0.4em 1em;
+    justify-content: space-between;
+    text-align: center;
+    border-block: 1px solid black;
+    h1 {
+      font-size: 1.2rem;
+    }
+    p {
+      color: $grey;
+    }
+
+    button {
+      display: flex;
+      padding: 0.2em 0.5em;
+      align-items: center;
+      gap: 0.5em;
+      border: 1px solid black;
+      background-color: $Secondary--color-1;
+      
+      p {
+        border-right: 1px black solid;
+        padding-right: 0.5em;
+        color: black;
+      }
+    }
+    .Description__CTACnt {
+      display: flex;
+      width: fit-content;
+      gap: 0.5em;
+
+      div {
+        display: flex;
+        align-items: center;
+      }
+    }
+    .Description__msg p {
+      display: none;
+    }
+    .Description__msg {
+      background-color: white;
+      font-size: 1.6rem;
+      padding-inline: 0.2em;
+    }
+  }
+
+  &__About {
+    padding: 0 1em;
+    margin-top: 1.5em;
+    h2 {
+      font-weight: 600;
+      font-size: 1.5rem;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  &__Icons {
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+    font-size: 2rem;
+    margin-top: 1em;
+    position: relative;
+    .Socialmedia{
+        position: relative;
+    }
+    .Socialmedia::after {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 2px;
+      background-color: black;
+      top: 0;
+      left: 65px ;
+    }
+    a{
+      transition: .2s;
+    }
+    a:hover{
+      color: $Primary--color;
+    }
+  }
+
+  hr {
+    margin-top: 1em;
+    width: 80%;
+    margin-inline: auto;
+  }
+}
+
+button[disabled=disabled], button:disabled{
+  background-color: #ccc; 
+  border: none; 
+  color: #999; 
+  opacity: 0.5; 
+  cursor: default;
+}
+
+.Events {
+  padding: 1em;
+  article {
+    margin-bottom: 2em;
+  }
+  &__Title h2 {
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 1em;
+    padding-left: 1.6em;
+  }
+
+  &__Cnt {
+    display: flex;
+    flex-flow: wrap;
+  }
+
+  &__CTA {
+    width: 100%;
+    display: flex;
+    margin: 1em auto 0;
+    align-items: center;
+    padding: 0 2.6em;
+    justify-content: space-between;
+    position: relative;
+    button {
+      display: flex;
+      align-items: center;
+      font-size: 1.2rem;
+      gap: .5em;
+      background-color: transparent;
+      border: transparent;
+      color: $Primary--color;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    p{
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      height: fit-content;
+    }
+  }
+}
+
+@media (min-width: 1000px) {
+  .Main {
+    flex-direction: row;
+    flex-flow: nowrap;
+    gap: 0.2em;
+    background-color: black;
+}
+
+.Cover img {
+    height: 350px;
+}
+
+.Description {
+    width: 29%;
+    text-align: center;
+    margin: .2em  0 0.1em .2em ;
+    background-color: white;
+    &__img {
+      margin-inline: auto;
+      padding: 0.2em;
+      margin-bottom: 0;
+      margin-top: -75px;
+      img {
+        width: 140px;
+        height: 140px;
+      }
+    }
+
+    &__CTA {
+      flex-direction: column;
+      background-image: none;
+      border: none;
+      margin-top: .2em;
+      &Cnt {
+        align-items: center;
+        margin: auto;
+        margin-top: 1em;
+        font-size: 1.3rem;
+        flex-flow: wrap;
+        div{
+            margin: auto;
+        }
+    }
+    .Description__msg{
+        font-size: 1.5rem;
+    }
+
+      .Description__msg p {
+        display: initial;
+        font-size: 1.4rem;
+      }
+    button{
+        font-size: 1.4rem;
+    }
+    }
+
+    hr{
+        display: none;
+    }
+    &__About{
+        margin-top: 1em;
+    h2{
+        margin-bottom: .4em;
+    }
+}  
+
+}
+
+  .Events {
+    width: 73%;
+    background-color: white;
+    margin: .2em  .2em .1em 0;
+    h2{
+        padding-left: 2em;
+    }
+    article{
+        margin-bottom: .5em;
+        position: relative;
+    }
+}
+}

@@ -1,0 +1,83 @@
+.btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 15px;
+    width: 178px;
+    height: 57px;
+    border: 3px solid #000000;
+    border-bottom:0px ;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 17px;
+    cursor: pointer;  
+    border-right: 0px;
+  }
+
+.Profile{
+    background-color: #F1E7DB ;
+    
+}
+
+.Saved{
+  background-color: #FDF5DB;
+  
+}
+
+.Hosted{
+  background-color:#E9DBFD;
+  
+}
+.Following{
+  background-color:#8BD2BD;
+  border-right: 3px solid black;
+}
+
+.btn:hover{
+  font-size: 29px;
+  line-height: 18px;
+}
+
+.btn:focus{
+  background-color: #000000;
+}
+
+
+
+
+
+
+
+.Profile:focus{
+  color : #F1E7DB ;
+}
+
+.Saved:focus{
+  color :#F1E7DB ; 
+}
+.Hosted:focus{
+  color:  #E9DBFD;
+}
+
+.Following:focus{
+  color: #8BD2BD;
+}
+
+
+
+
+@media (width > 1142px) {
+  .Mobile{
+    display: none;
+  }
+}
+@media (width < 1142px){
+  .DeskTop{
+    display: none;
+  }
+}
+
