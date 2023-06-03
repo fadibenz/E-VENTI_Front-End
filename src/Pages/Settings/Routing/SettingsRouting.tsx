@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
-import Navbar from '../../../Components/Navbar/Navbar';
+import {Navbar, Footer} from '../../../Components/index';
 import { PSHFBtn } from '../../../Components/PSHFBtn/PSHFBtn';
 import V from '../../../../public/Assets/Icons/Vshape.svg';
 import SY from './Rout.module.scss';
@@ -69,6 +69,7 @@ export const SettingsRouting: FC<SettingsRoutingInterface> = ({user}) => {
       </div>
 
       <Outlet />
+      
     </>
   );
 };

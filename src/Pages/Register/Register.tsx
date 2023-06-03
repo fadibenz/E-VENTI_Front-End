@@ -2,13 +2,14 @@ import { FC, useState } from 'react';
 import SY from './Register.module.scss';
 import { BsPerson, BsTelephone, BsCalendar4Event, BsPen } from 'react-icons/bs';
 import { registerMe } from '../../Services/Account';
+import { setCookie } from 'typescript-cookie';
 import { AuthLayout, InputField, Password } from '../../Components/index';
+import { getExpirationTime } from '../../Helpers';
 interface RegisterProps {
   setToken: (param: string) => void;
 }
 
-const Register: FC<RegisterProps> = ( {setToken}) => {
-  
+const Register: FC<RegisterProps> = ({ setToken }) => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -28,9 +29,9 @@ const Register: FC<RegisterProps> = ( {setToken}) => {
     e: React.FormEvent<EventTarget>
   ): Promise<void> => {
     e.preventDefault();
-    
+
     const data = new FormData();
-    
+
     data.append('firstName', formData.firstName);
     data.append('lastName', formData.lastName);
     data.append('phoneNumber', formData.phone);
@@ -39,12 +40,17 @@ const Register: FC<RegisterProps> = ( {setToken}) => {
     data.append('birthDate', formData.birth);
     data.append('password', password.password);
     data.append('confirmPassword', password.confirmPassword);
-    
+
     try {
       const response = await registerMe(data);
-      console.log(response, response?.data)
-      setToken(response?.data);
-      
+      const expirationTime = getExpirationTime(response?.token);
+      setCookie('Token', response.token, {
+        expires: expirationTime ? expirationTime : 3,
+      });
+      setCookie('UserID', response.userId, {
+        expires: expirationTime ? expirationTime : 3,
+      });
+      setToken(response.token);
     } catch (error) {
       console.log(error);
     }

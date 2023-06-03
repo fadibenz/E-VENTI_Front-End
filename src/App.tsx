@@ -7,6 +7,7 @@ import {
   Following,
   Hosted,
   Saved,
+  CreateForm,
 } from './Pages/index';
 import { SettingsRouting } from './Pages/index';
 import { getCookie } from 'typescript-cookie';
@@ -14,6 +15,7 @@ import { getUserDetails } from './Services/Users';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './Pages/Layout';
 import ScrollToTop from './Pages/ScrollToTop';
+import Profile from './Pages/Settings/Profile/Profile';
 
 const App: FC = () => {
   const [user, setUser] = useState<any>(null);
@@ -34,7 +36,7 @@ const App: FC = () => {
       if (UserID) {
         const User = await getUserDetails(UserID, config);
         setUser(User);
-        console.log(User);
+        console.log("Look: ", User);
       }
     };
     getUser();
@@ -65,8 +67,13 @@ const App: FC = () => {
               path='/Organizer/:id'
               element={<Organizer user={user} config={config} />}
             />
+            <Route path='/Create' element={<CreateForm config={config} user={user} />} />
           </Route>
           <Route path='/Dashboard' element={<SettingsRouting user={user} />}>
+            <Route
+              path='/Dashboard/Profile'
+              element={<Profile config={config} user={user} />}
+            />
             <Route
               path='/Dashboard/Following'
               element={<Following config={config} user={user?.id} />}

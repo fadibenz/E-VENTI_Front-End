@@ -136,7 +136,7 @@ const Following: FC<FollowingInterface> = ({ user, config }) => {
                   label={
                     <OrganizeAvatar
                       name={obj?.userName}
-                      img={''}
+                      img={obj?.profilePictureUrl}
                       id={obj?.id}
                     />
                   }
@@ -151,7 +151,7 @@ const Following: FC<FollowingInterface> = ({ user, config }) => {
             return (
               <>
                 <div className={SY.card} key={card.id}>
-                  <div className={SY.headercard}>
+                  {/* <div className={SY.headercard}>
                     <div className={SY.avatarName}>
                       <Avatar
                         alt={'Organizer name'}
@@ -166,7 +166,7 @@ const Following: FC<FollowingInterface> = ({ user, config }) => {
                     <div className={SY.Date}>
                       <p>Added 12 min ago</p>
                     </div>
-                  </div>
+                  </div> */}
                   <EventCard
                     img={card?.coverUrl}
                     location='Location'

@@ -36,10 +36,10 @@ const Hosted: FC<HostedInterface> = ({ user, config }) => {
   useEffect(() => {
     const getHosted = async () => {
       const response = await organizedEventList(
-        'efdbd51f-8ef0-40dd-b27f-6cf6df0d16a5',
+        user,
         config
       );
-      console.log(response);
+      console.log("well well: "  ,response);
       const newArray = response.map((obj: any) => {
         return {
           ...obj,
@@ -155,12 +155,12 @@ const Hosted: FC<HostedInterface> = ({ user, config }) => {
                     id={card?.id}
                   />
                   <div className='EventCTA'>
-                    <button className='Edit-color'>
+                    {/* <button className='Edit-color'>
                       <img className='btnIcon' src={EditIcon} />
                       <div>
                         <p>Edit</p>
                       </div>
-                    </button>
+                    </button> */}
                     <button
                       className='Del-color'
                       onClick={() => handlePop(index, !card.ispop)}

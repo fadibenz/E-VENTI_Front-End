@@ -76,8 +76,8 @@ const Organizer: FC<OrganizerProps> = ({ config, user }) => {
 
     const getFollowers = async () => {
       const response = await getFollowersList(id, config);
-      console.log('Follow', response);
-      setFollow(response?.some((m: any) => m.username === user?.username));
+      console.log('Follow', response, user?.userName);
+      setFollow(response?.some((m: any) => m.username === user?.userName));
     };
     getFollowers();
   }, [user, id]);
@@ -119,12 +119,12 @@ const Organizer: FC<OrganizerProps> = ({ config, user }) => {
               <p>{organizer?.userName}</p>
             </div>
             <div className={SY.Description__CTACnt}>
-              <div>
+              {/* <div>
                 <button className={SY.Description__msg}>
                   <p>message</p>
                   <HiOutlineEnvelope />
                 </button>
-              </div>
+              </div> */}
               <div>
                 <button onClick={handleFollow}>
                   {follow ? (

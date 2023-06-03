@@ -33,11 +33,11 @@ const Navbar: FC<NavbarProps> = ({ user }) => {
         </div>
         <div className={SY.Navbtn}>
           <section className={`${SY.NavbtnCnt} ${show ? SY.show : undefined}`}>
-            <button className={SY.BTN}>
+            {/* <button className={SY.BTN}>
               <BiSearchAlt />
               <p>Search</p>
-            </button>
-            <button className={SY.BTN}>
+            </button> */}
+            <button className={SY.BTN} onClick={()=> navigate('/Create')}>
               <BiPencil />
               <p>Create</p>
             </button>
@@ -45,16 +45,16 @@ const Navbar: FC<NavbarProps> = ({ user }) => {
               <BsSignpost2 />
               <p>Explore</p>
             </button>
-            <button className={SY.BTN}>
+            {/* <button className={SY.BTN}>
               <HiOutlineBell />
               <p>Notifications</p>
-            </button>
+            </button> */}
           </section>
           <button className={SY.Avatar} onClick={handleClick}>
             {user ? (
               <>
                 <img src='/Assets/Images/Organizer/lost.jpg' alt='' />
-                <p>Fadi Benzaima</p>
+                <p>{user.userName}</p>
               </>
             ) : (
               'Login / Register'

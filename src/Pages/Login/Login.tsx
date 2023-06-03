@@ -35,8 +35,12 @@ const Login: FC<LoginProps> = ({ setToken, setUser }) => {
         console.log(response.token, response.userData);
         const expirationTime = getExpirationTime(response?.token);
         console.log(expirationTime);
-        setCookie('Token', response.token, { expires: expirationTime });
-        setCookie('UserID', response.userData.id, {expires: expirationTime});
+        setCookie('Token', response.token, {
+          expires: expirationTime ? expirationTime : 3,
+        });
+        setCookie('UserID', response.userData.id, {
+          expires: expirationTime ? expirationTime : 3,
+        });
         setToken(response.token);
         setPassword({ ...password, password: '' });
         setUsername({ ...username, username: '' });

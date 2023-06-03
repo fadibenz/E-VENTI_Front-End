@@ -16,6 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "src/Components/Footer"],
+  "include": ["src", "src/Components/Footer", "src/Components/InputField"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

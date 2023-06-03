@@ -64,3 +64,17 @@ export const getFollowingList = async (id: string, config: any) => {
   }
 };
 
+
+export const updateUser= async ( config: any, data: any) => {
+  try {
+    const response = await axios.put(
+      `${baseURl}/UpdateUserProfile`,
+      data ,config
+    );
+    console.log(response)
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+

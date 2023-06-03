@@ -23,8 +23,6 @@ import {
 } from '../../Services/Users';
 import { getDate } from '../../Helpers';
 
-import T from '/Assets/Images/EventDetails/mainPhoto.jpg';
-import U from '/Assets/Images/EventDetails/yoal-desurmont-ddawgJ7eGDA-unsplash.jpg';
 interface EventDetailsProps {
   config: any;
   token: any;
@@ -33,7 +31,7 @@ interface EventDetailsProps {
 
 const EventDetails: FC<EventDetailsProps> = ({ config, token, user }) => {
   const { id } = useParams<{ id: any }>();
-  const Thumbnails = [U, T, T];
+  // const Thumbnails = [U, T, T];
   const navigate = useNavigate();
   const [index, setIndex] = useState(0);
   const [exists, setExists] = useState({
@@ -221,13 +219,13 @@ const EventDetails: FC<EventDetailsProps> = ({ config, token, user }) => {
     }
   };
 
-  const check = (index: number) => {
-    if (index < 0) {
-      return Thumbnails.length - 1;
-    } else if (index >= Thumbnails.length) {
-      return 0;
-    } else return index;
-  };
+  // const check = (index: number) => {
+  //   if (index < 0) {
+  //     return Thumbnails.length - 1;
+  //   } else if (index >= Thumbnails.length) {
+  //     return 0;
+  //   } else return index;
+  // };
 
   return (
     <>
@@ -237,7 +235,7 @@ const EventDetails: FC<EventDetailsProps> = ({ config, token, user }) => {
       </button> */}
         <section className={SY.mainPhoto}>
           <img src={event?.coverUrl} />
-          <article className={SY.Thumbnails}>
+          {/* <article className={SY.Thumbnails}>
             <button
               onClick={() => setIndex(check(index - 1))}
               className={SY.NavBtn}
@@ -260,7 +258,7 @@ const EventDetails: FC<EventDetailsProps> = ({ config, token, user }) => {
             >
               <GrFormNext />
             </button>
-          </article>
+          </article> */}
         </section>
         <main className={SY.EventMain}>
           <section className={SY.Organizer__cnt}>

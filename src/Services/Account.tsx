@@ -6,10 +6,11 @@ export const registerMe = async (data: any) => {
     if (data) {
       const response = await axios.post(`${baseURl}/Register`, data);
       console.log(response);
-      return response;
+      return response.data;
     }
   } catch (error) {
     console.log(error);
+    alert(error.request.response);
   }
 };
 

@@ -1,0 +1,93 @@
+@import '../../../Styles/_variables.scss';
+@import '../../../Styles/_base';
+@import '../../../Styles/index';
+
+.container {
+  box-sizing: border-box;
+  margin-left: 5.13%;
+  margin-right: 5.13%;
+  border: 1px solid #000000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+}
+
+.titleDesk{
+    display: none;
+}
+
+@media (width > 1141px) {
+  .container {
+      flex-direction: row;
+      border: 0px;
+      box-sizing: border-box;
+      border: 3px solid black;
+      position: fixed;
+      top: 8.2em;
+      padding-right: 0px;
+      width: 80vw;
+      height: 75vh;
+      margin-left: 9.13%;
+      margin-right: 5.13%;
+    }
+    .titleDesk{
+      background: var(--Secondarycolorr);          
+      position: absolute;
+      width: 2%;
+      right: 0px;
+      top: 0px;
+      bottom: 0px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+      .rl{
+          writing-mode: vertical-rl;
+          font-family: 'Montserrat';
+          font-style: normal;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 20px;
+          letter-spacing: 0.2em;
+          text-align: center;
+          width: fit-content;
+          writing-mode:sideways-lr;
+      }
+  }
+
+.Main {
+    width: 100%;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    div {
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+        display: flex;
+    }
+    textarea {
+        margin-bottom: 1.2em;
+        // width: 350px;
+        padding: 1em;
+    }
+    h3{
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-bottom: 1.2em;
+        color: $grey;
+    }
+    .Input {
+        width: 300px;
+    }
+}
+
+
+.btn {
+  margin-top: 1em;
+  align-self: flex-end;
+  width: 20%;
+  padding: .4em .6em;
+}

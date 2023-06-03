@@ -27,6 +27,7 @@ const Saved: FC<SavedInterface> = ({ config }) => {
       try {
         const response = await getSavedList(config);
         setList(response);
+        console.log(response);
         setCategList(response);
       } catch (error) {
         console.log(error);
@@ -122,7 +123,7 @@ const Saved: FC<SavedInterface> = ({ config }) => {
           <p>View your saved events</p>
         </div>
 
-        <Box
+        {/* <Box
           sx={{
             maxWidth: { xs: 320, sm: 480, md: 800 },
             bgcolor: 'background.paper',
@@ -186,7 +187,7 @@ const Saved: FC<SavedInterface> = ({ config }) => {
               sx={{ mb: isSmallScreen ? 0 : 5 }}
             />
           </Tabs>
-        </Box>
+        </Box> */}
 
         <div className={SY.cards}>
           {first_list?.map((card : any, index: number) => {
@@ -197,16 +198,13 @@ const Saved: FC<SavedInterface> = ({ config }) => {
                     <div className={SY.avatarName}>
                       <Avatar
                         alt={'Organizer name'}
-                        src={''}
+                        src={card?.organizerProfilePicture}
                         sx={{
                           width: { xs: '30px', md: '50px' },
                           height: { xs: '30px', md: '50px' },
                         }}
                       />
-                      <p>Organizer</p>
-                    </div>
-                    <div className={SY.Date}>
-                      <p>Added 12 min ago</p>
+                      <p>{card?.organizerName}</p>
                     </div>
                   </div>
                   <EventCard
@@ -229,16 +227,16 @@ const Saved: FC<SavedInterface> = ({ config }) => {
           ) : (
             <>
               <div className={SY.EventCTA}>
-                <button onClick={() => ShowCards(num)}>
+                {/* <button onClick={() => ShowCards(num)}>
                   <img className={SY.btnIcon} src={v} />
                   <div>
                     <p>View more</p>
                   </div>
-                </button>
+                </button> */}
               </div>
-              <button onClick={() => ShowCards(num)} className={SY.vmbtn}>
+              {/* <button onClick={() => ShowCards(num)} className={SY.vmbtn}>
                 View more
-              </button>
+              </button> */}
             </>
           )}
         </div>
