@@ -8,6 +8,7 @@ import {
   Hosted,
   Saved,
   CreateForm,
+  Home
 } from './Pages/index';
 import { SettingsRouting } from './Pages/index';
 import { getCookie } from 'typescript-cookie';
@@ -44,7 +45,8 @@ const App: FC = () => {
 
   return (
     <div className='App'>
-      <ScrollToTop>
+     <Home /> 
+    {/*  <ScrollToTop>
         <Routes>
           <Route
             path='/'
@@ -88,7 +90,7 @@ const App: FC = () => {
             />
           </Route>
         </Routes>
-      </ScrollToTop>
+            </ScrollToTop> */}
     </div>
   );
 };

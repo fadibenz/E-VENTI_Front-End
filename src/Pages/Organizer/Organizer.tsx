@@ -165,8 +165,14 @@ const Organizer: FC<OrganizerProps> = ({ config, user }) => {
             </p>
           </article>
           <hr />
+
+
+
         </section>
         <section className={SY.Events}>
+
+
+          
           <article>
             <div className={SY.Events__Title}>
               <h2>Upcoming events :</h2>
@@ -212,6 +218,10 @@ const Organizer: FC<OrganizerProps> = ({ config, user }) => {
               </button>
             </div>
           </article>
+
+
+
+
           <article>
             <div className={SY.Events__Title}>
               <h2>Past events :</h2>
