@@ -45,13 +45,8 @@ const App: FC = () => {
 
   return (
     <div className='App'>
-     <Home /> 
-    {/*  <ScrollToTop>
+      <ScrollToTop>
         <Routes>
-          <Route
-            path='/'
-            element={<Login setToken={setToken} setUser={setUser} />}
-          />
           <Route
             path='/Login'
             element={<Login setToken={setToken} setUser={setUser} />}
@@ -59,6 +54,10 @@ const App: FC = () => {
           <Route path='/Register' element={<Register setToken={setToken} />} />
 
           <Route path='/' element={<Layout user={user} />}>
+            <Route
+              path='/'
+              element={<Home user={user} token={token} config={config} />}
+            />
             <Route
               path='/EventDetails/:id'
               element={
@@ -69,12 +68,15 @@ const App: FC = () => {
               path='/Organizer/:id'
               element={<Organizer user={user} config={config} />}
             />
-            <Route path='/Create' element={<CreateForm config={config} user={user} />} />
+            <Route
+              path='/Create'
+              element={<CreateForm config={config} user={user} />}
+            />
           </Route>
           <Route path='/Dashboard' element={<SettingsRouting user={user} />}>
             <Route
               path='/Dashboard/Profile'
-              element={<Profile config={config} user={user} />}
+              element={<Profile config={config} user={user} setToken={setToken} />}
             />
             <Route
               path='/Dashboard/Following'
@@ -90,7 +92,7 @@ const App: FC = () => {
             />
           </Route>
         </Routes>
-            </ScrollToTop> */}
+      </ScrollToTop>
     </div>
   );
 };

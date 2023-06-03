@@ -28,7 +28,7 @@ const Navbar: FC<NavbarProps> = ({ user }) => {
             <HiMenuAlt2 className={SY.Mobile} onClick={() => setShow(!show)} />
           </button>
           <section>
-            <p>LOGO</p>
+            <img src="/Assets/Icons/logo2.svg" alt="" />
           </section>
         </div>
         <div className={SY.Navbtn}>
@@ -41,7 +41,7 @@ const Navbar: FC<NavbarProps> = ({ user }) => {
               <BiPencil />
               <p>Create</p>
             </button>
-            <button className={SY.BTN}>
+            <button className={SY.BTN} onClick={()=> navigate('/')}>
               <BsSignpost2 />
               <p>Explore</p>
             </button>

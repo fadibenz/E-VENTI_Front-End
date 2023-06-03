@@ -67,7 +67,7 @@ const EventCard: FC<EventCardProps> = ({
           </div>
           <div className={SY.Icon__cnt}>
             <BsTicketPerforated className={SY.Ticket} />
-            <h4>{price}</h4>
+            <h4>Free</h4>
           </div>
         </div>
       </Link>

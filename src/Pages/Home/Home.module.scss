@@ -8,8 +8,9 @@
     display: flex;
     flex-direction: column ;
     align-items: center ;
+    overflow-x: hidden;
     gap :13px ; 
-    width: 100vw;
+    width: 97vw;
     .header{
        display: flex;
        flex-direction: column;
@@ -156,6 +157,7 @@
                     right: -15px ; 
                     height: 46px;
                     .remaining{
+                        padding: .4em;
                         display: flex;
                         flex-direction: column;
                         align-items: flex-start;
@@ -469,6 +471,7 @@
             flex-direction: row;
             flex-wrap: wrap ;
             justify-content: center;
+            margin-bottom: 2em;
             .card{
                 width: 500px;
                 padding-left: 3em;
@@ -482,7 +485,4 @@
       }
    } 
 }
-
-
-
 

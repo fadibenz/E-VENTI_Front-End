@@ -2,18 +2,23 @@ import { FC, useEffect, useState } from 'react';
 import SY from './Profile.module.scss';
 import { InputField } from '../../../Components';
 import { updateUser } from '../../../Services/Users';
+import { setCookie } from 'typescript-cookie';
+import {logOff} from '../../../Services/Account'
+import {  useNavigate } from 'react-router';
 interface ProfileProps {
   config: any;
   user: any;
+  setToken: any;
 }
 
-const Profile: FC<ProfileProps> = ({ user, config }) => {
+const Profile: FC<ProfileProps> = ({ user, config, setToken }) => {
   const [data, setData] = useState<any>({
     bio: '',
     firstname: '',
     lastname: '',
     username: '',
   });
+  const navigate = useNavigate()
 
   useEffect(() => {
     setData({
@@ -37,10 +42,22 @@ const Profile: FC<ProfileProps> = ({ user, config }) => {
       
     }
   }
+
+  const handleClick = async () => {
+    try {
+      const response = await logOff();
+        setCookie('Token', null);
+        setCookie('UserID', null);
+        setToken(null);
+        navigate('/');
+    } catch (error) {
+      
+    }
+  } 
   return (
     <div className={SY.container}>
-        <main className={SY.Main}>
-      <form onSubmit={handleSubmit}>
+      <main className={SY.Main}>
+        <form onSubmit={handleSubmit}>
           <div>
             <h3>Bio</h3>
             <textarea placeholder='Bio' cols='30' rows='3'></textarea>
@@ -82,8 +99,9 @@ const Profile: FC<ProfileProps> = ({ user, config }) => {
             />
           </div>
           <input type='submit' value='Save Changes' className={SY.btn} />
-      </form>
-        </main>
+        </form>
+        <button className={SY.btn} onClick={handleClick}>Log Off</button>
+      </main>
       <div className={SY.titleDesk}>
         <p className={SY.rl}>view or edit your information</p>
       </div>

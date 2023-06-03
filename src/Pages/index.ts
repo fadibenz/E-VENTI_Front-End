@@ -8,5 +8,5 @@ import Saved from './Settings/Saved/Saved';
 import Following from './Settings/Following/Following' ;
 import { SettingsRouting } from "./Settings/Routing/SettingsRouting";
 import {Home} from "./Home/Home" ; 
-export { Register, Login, EventDetails, Organizer , Hosted ,Saved , Following , SettingsRouting , Home};
+export { Register, Login, EventDetails, Organizer , Hosted ,Saved , Following , SettingsRouting , Home, CreateForm};
 

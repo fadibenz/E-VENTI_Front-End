@@ -35,7 +35,7 @@ export const cancelEvent = async (id: string, config: any) => {
 };
 
 
-export const getEventList = async (id: string, config: any) => {
+export const getEventList = async ( config: any) => {
   try {
     const response = await axios.get(`${baseURl}/GetEventsList`, config);
     return response.data;

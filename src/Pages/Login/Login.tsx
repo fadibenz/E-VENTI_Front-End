@@ -44,7 +44,7 @@ const Login: FC<LoginProps> = ({ setToken, setUser }) => {
         setToken(response.token);
         setPassword({ ...password, password: '' });
         setUsername({ ...username, username: '' });
-        navigate('/Organizer/efdbd51f-8ef0-40dd-b27f-6cf6df0d16a5');
+        navigate('/');
       } catch (error) {
         console.log(error);
       }
