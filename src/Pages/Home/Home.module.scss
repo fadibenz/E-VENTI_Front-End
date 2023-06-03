@@ -243,8 +243,8 @@
                 flex-direction: column;
                 gap: 10px;
                 z-index: 1;
-                padding-left: 5.13%;
-                padding-right:5.13%;
+                padding-left: 2em;
+                padding-right:2em;
                 .headercard{
                     width: 90%;
                     display:flex ;
@@ -364,8 +364,7 @@
 
        .last{
            margin-top: 14em;
-           position: relative;
-           border: 1px solid lawngreen;        
+           position: relative;    
        }
     }
 }
@@ -451,10 +450,35 @@
                         }
                     }
                 }
+            }       
+        }
+        .LastRow{
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 28px;
+            line-height: 34px;
+            padding-right: 7em;        
+            padding-left:  7em;        
+        }
+      }
+
+
+      .content{
+        .cards{
+            flex-direction: row;
+            flex-wrap: wrap ;
+            justify-content: center;
+            .card{
+                width: 500px;
+                padding-left: 3em;
+                padding-right: 0px;
+                gap:20px;
             }
         }
-
-
+        .atn{
+            
+        }
       }
    } 
 }

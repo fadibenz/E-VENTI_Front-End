@@ -26,12 +26,14 @@ const text = "E-VENTI*E-VENTI*E-VENTI" ;
 
 const [list, setList] = useState<any>([
   {id: 1 , coverUrl : `${mainPhoto}` , dateAndTime:'12/12/12' , title:'bestone' , categoryName:'Sport'  , price:'50DA'},
-  {id: 1 , coverUrl : `${mainPhoto}` , dateAndTime:'12/12/12' , title:'bestone' , categoryName:'Sport'  , price:'50DA'},
-  {id: 1 , coverUrl : `${mainPhoto}` , dateAndTime:'12/12/12' , title:'bestone' , categoryName:'Sport'  , price:'50DA'},
-  {id: 1 , coverUrl : `${mainPhoto}` , dateAndTime:'12/12/12' , title:'bestone' , categoryName:'Health' , price:'50DA'}
+  {id: 2 , coverUrl : `${mainPhoto}` , dateAndTime:'12/12/12' , title:'bestone' , categoryName:'Sport'  , price:'50DA'},
+  {id: 3 , coverUrl : `${mainPhoto}` , dateAndTime:'12/12/12' , title:'bestone' , categoryName:'Sport'  , price:'50DA'},
+  {id: 4 , coverUrl : `${mainPhoto}` , dateAndTime:'12/12/12' , title:'bestone' , categoryName:'Health' , price:'50DA'},
+  {id: 5 , coverUrl : `${mainPhoto}` , dateAndTime:'12/12/12' , title:'bestone' , categoryName:'Health' , price:'50DA'},
+  {id: 6 , coverUrl : `${mainPhoto}` , dateAndTime:'12/12/12' , title:'bestone' , categoryName:'Health' , price:'50DA'}
 ]);
 const [CategList, setCategList] = useState([]);
-const [value, setValue] = React.useState(0); /*for the list of categories */
+const [value, setValue] = React.useState(1); /*for the list of categories */
 const first_list: any = CategList?.slice(0);
 
 
@@ -155,7 +157,7 @@ const first_list: any = CategList?.slice(0);
         <Box
           sx={{
             MarginTop:'100px',
-            maxWidth: { xs: '100%', sm: '100%', md: 800 },
+            maxWidth: { xs: '100%', sm: '100%', md: 900 },
             bgcolor: 'none',
           }}
         >
