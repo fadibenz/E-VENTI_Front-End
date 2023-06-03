@@ -157,7 +157,7 @@ const first_list: any = CategList?.slice(0);
         <Box
           sx={{
             MarginTop:'100px',
-            maxWidth: { xs: '100%', sm: '100%', md: 900 },
+            maxWidth: { xs: '100%', sm: '100%', md: '100%' },
             bgcolor: 'none',
           }}
         >
